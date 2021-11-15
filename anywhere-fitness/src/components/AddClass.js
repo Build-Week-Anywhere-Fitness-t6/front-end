@@ -15,6 +15,6 @@ export default function AddClass() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axiosWithAuth()
+        
     }
 }
