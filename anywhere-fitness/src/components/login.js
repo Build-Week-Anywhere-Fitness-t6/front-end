@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import * as yup from "yup";
+import axios from "axios";
+
+// FormSchema for Validation
+import formSchema from "../Validation/signup&login";
 
 const initialFormErrors = {
     username: "",
@@ -19,34 +24,36 @@ export default function Login() {
     // Form Errors
      const [formErrors, setFormErrors] = useState(initialFormErrors);
 
-    // const { push } = useHistory();
+    const { push } = useHistory();
       
     const login = (e) => {
         e.preventDefault();
-    //     axiosWithAuth()
-    //       .post("auth/login", state.credentials)
-    //       .then((res) => {
-    //         setFormErrors(initialFormErrors);
-    //         localStorage.setItem("token", res.data.token);
-    //         push("/upcomingevents");
-    //         props.setLoggedIn(true);
-    //       })
-    //       .catch((err) => {
-    //         setFormErrors({
-    //           ...formErrors,
-    //           navValid: "this account does not exist",
-    //         });
-    //       });
+        // axios
+        //   .post("auth/login", state.credentials)
+        //   .then((res) => {
+        //     setFormErrors(initialFormErrors);
+        //     localStorage.setItem("token", res.data.token);
+        //     push("/upcomingevents");
+        //     props.setLoggedIn(true);
+        //   })
+        //   .catch((err) => {
+        //     setFormErrors({
+        //       ...formErrors,
+        //       navValid: "this account does not exist",
+        //     });
+        //   });
     };
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-    
+       
         setState({
           credentials: { ...state.credentials, [name]: value },
         });
     };
+
+   
 
     return (
         <div>
@@ -59,6 +66,7 @@ export default function Login() {
                         value={state.username}
                         onChange={handleChange}
                     />
+                    <p>{formErrors.username}</p>
                 </label>
                 <label>
                     Password:
@@ -68,8 +76,9 @@ export default function Login() {
                         value={state.password}
                         onChange={handleChange}
                     />
+                         <p>{formErrors.password}</p>
                 </label>
-                <button>Login</button>
+                <button >Login</button>
             </form>
         </div>
     );
