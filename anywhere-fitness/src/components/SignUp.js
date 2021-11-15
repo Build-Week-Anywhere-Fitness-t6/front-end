@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import * as yup from "yup";
+
+// FormSchema for Validation
+import formSchema from "../Validation/signup&login";
 
 const initialFormErrors = {
     username: "",
@@ -26,6 +30,8 @@ export default function SignUp() {
         const name = e.target.name;
         const value = e.target.value;
 
+        validate(name, value);
+
         setForm({
           credentials: { ...form.credentials, [name]: value },
         });
@@ -48,6 +54,20 @@ export default function SignUp() {
           });
       };
 
+       // Validation
+
+    useEffect(() => {
+        formSchema.isValid(form.credentials).then((valid) => setDisabled(!valid));
+    }, [form.credentials]);
+
+    const validate = (name, value) => {
+        yup
+        .reach(formSchema, name)
+        .validate(value)
+        .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+        .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+    }; 
+
     return (
        <div>
             <h2>Please Create An Account</h2>
@@ -59,8 +79,17 @@ export default function SignUp() {
                     name="username"
                     value={form.username}
                     onChange={handleChange}
+                    invalid={!!formErrors.username}
+                    valid={
+                      formErrors.username !== ""
+                        ? false
+                        : form.credentials.username
+                        ? true
+                        : false
+                    }
                 />
             </label>
+            <p>{formErrors.username}</p>
             <label>
                 Password:
                 <input
@@ -68,9 +97,18 @@ export default function SignUp() {
                     name="password"
                     value={form.password}
                     onChange={handleChange}
+                    invalid={!!formErrors.password}
+                    valid={
+                    formErrors.password !== ""
+                        ? false
+                        : form.credentials.password
+                        ? true
+                        : false
+                    }
                 />
+                <p>{formErrors.password}</p>
             </label>
-                <button>Create</button>
+                <button disabled={disabled}>Create</button>
             </form>
         </div>
     )
