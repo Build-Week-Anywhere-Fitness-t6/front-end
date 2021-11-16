@@ -54,11 +54,11 @@ export default function Dashboard() {
         <div>
             <h1>Welcome to Anywhere Fitness!</h1>
             <div>
-                {classes.map((potluck) => {
+                {classes.map((workout) => {
                     return (
                         <Class
-                        key={potluck.potluck_id}
-                        potluck={potluck}
+                        key={workout.class_id}
+                        workout={workout}
                         // handleDelete={() => {
                         //     handleDelete(potluck.potluck_id);
                         // }}
@@ -66,7 +66,7 @@ export default function Dashboard() {
                     );
                 })}
             </div>
-            <button onClick={handleAdd}>Create a Class</button>
+            <button onClick={handleAdd}>Create a Workout</button>
         </div>
         
     )
