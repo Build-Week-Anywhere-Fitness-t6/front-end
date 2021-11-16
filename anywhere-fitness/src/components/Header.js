@@ -5,16 +5,15 @@ import { withStyles } from '@material-ui/core/styles';
 
 const NavLinks = withStyles({
     root: {
-      color: '#000',  
+      color: '#EBFEF9',  
       boxShadow: 'none',
       textTransform: 'none',
       fontSize: 15,
-      fontWeight: 600,
-      border: '1px solid',
+      fontWeight: 500,
       lineHeight: 1.5,
-      padding: '10px 55px',
-      backgroundColor: '#FFD470',
-      borderColor: '#118AB2',
+      letterSpacing: 1.5,
+      padding: '10px 75px',
+      backgroundColor: '#118AB2',
       fontFamily: [
         'Raleway',
         'sans-serif'
@@ -41,12 +40,14 @@ export default function Header() {
     return (
         <div className='header'>
             <nav>
-                <p class='nav-title'>Anywhere Fitness</p>
+                <a 
+                  className='nav-title' 
+                  href='/'>
+                  Anywhere Fitness
+                  </a>
             <ButtonGroup>
-                <NavLinks href='/'>Home</NavLinks>
-                <NavLinks href='/login'>Log in</NavLinks>
                 <NavLinks href='/signup'>Sign up</NavLinks>
-                <NavLinks href='/team'>Our Team</NavLinks>
+                <NavLinks href='/login'>Log in</NavLinks>
             </ButtonGroup>
             </nav>            
         </div>
