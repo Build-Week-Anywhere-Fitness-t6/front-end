@@ -16,6 +16,7 @@ export default function SignUp() {
         credentials: {
           username: "",
           password: "",
+          role: ""
         },
       });
     
@@ -39,7 +40,7 @@ export default function SignUp() {
         e.preventDefault();
         axios
           .post(
-            "https://testurl.com",
+            "/auth/register",
             form.credentials
           )
           .then((res) => {
@@ -75,7 +76,16 @@ export default function SignUp() {
                     onChange={handleChange}
                 />
             </label>
-                <button>Create</button>
+            <select 
+              value={form.role}
+              onChange={handleChange}
+              name="role"
+            >
+              <option value=''>- Choose Account -</option>
+              <option value="client">Client</option>
+              <option value="instructor">Instructor</option>
+            </select>
+                <button >Create</button>
             </form>
         </div>
     )
