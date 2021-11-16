@@ -15,9 +15,15 @@ import PrivateRoute from "./components/PrivateRoute";
 import SignUp from "./components/SignUp";
 import Team from "./components/Team";
 
+// Material UI imports
+import { Container } from "@material-ui/core";
+
+
+
 
 function App() {
   return (
+    <Container maxWidth='xlg'>
     <div className="App">
       <Header/>
       <Switch>
@@ -45,6 +51,7 @@ function App() {
       </Switch>
       <Footer/>
     </div>
+    </Container>
   );
 }
 

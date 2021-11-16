@@ -1,9 +1,12 @@
 import React from 'react'
+import { Typography } from '@material-ui/core';
 
 export default function Home() {
     return (
-        <div>
-            Create Home Page
+        <div className='home-page'>
+            <header>
+           <Typography variant='h2'>Anywhere Fitness</Typography>
+           </header>
         </div>
     )
 }
