@@ -1,34 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Class from "./Class";
+import axios from "axios";
 
 export default function Dashboard() {
     const { push } = useHistory();
-  const [classes, setClasses] = useState([{ 
-      name: "Yoga in the living room", 
-        instructor_username: "deeyoak", 
-        type: "yoga", 
-        start_time: "9am", 
-        duration: "20mins", 
-        intensity: "beginner", 
-        location: "living room floor", 
-        class_size: 1 }]);
+  const [classes, setClasses] = useState([
+      ]);
 
 
-    //   const getClasses = () => {
-    //     axiosWithAuth()
-    //       .get("LINK")
-    //       .then((res) => {
-    //         setClasses(res.data);
-    //       })
-    //       .catch((err) => {
-    //         console.log(err.response);
-    //       });
-    //   };
+      const getClasses = () => {
+        axios
+          .get("https://ft-anywhere-fitness-6.herokuapp.com/api/classes")
+          .then((res) => {
+            setClasses(res.data);
+            console.log(res.data)
+          })
+          .catch((err) => {
+            console.log(err.response);
+          });
+      };
 
-    // useEffect(() => {
-    //     getClasses();
-    // }, []);
+    useEffect(() => {
+        getClasses();
+    }, []);
 
     // const deleteClass = (id) => {
     //     setClasses(classes.filter((class) => class.class_id !== +id));

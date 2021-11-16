@@ -40,7 +40,7 @@ export default function SignUp() {
         e.preventDefault();
         axios
           .post(
-            "/auth/register",
+            "https://ft-anywhere-fitness-6.herokuapp.com/api/auth/register",
             form.credentials
           )
           .then((res) => {
