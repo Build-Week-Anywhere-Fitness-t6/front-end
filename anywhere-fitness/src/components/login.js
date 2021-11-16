@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+import axiosWithAuth from "../utilities/axiosWithAuth"
 import axios from "axios";
 
 // FormSchema for Validation
@@ -28,20 +29,21 @@ export default function Login() {
       
     const login = (e) => {
         e.preventDefault();
-        // axios
-        //   .post("auth/login", state.credentials)
-        //   .then((res) => {
-        //     setFormErrors(initialFormErrors);
-        //     localStorage.setItem("token", res.data.token);
-        //     push("/upcomingevents");
-        //     props.setLoggedIn(true);
-        //   })
-        //   .catch((err) => {
-        //     setFormErrors({
-        //       ...formErrors,
-        //       navValid: "this account does not exist",
-        //     });
-        //   });
+        axios
+          .post("https://ft-anywhere-fitness-6.herokuapp.com/api/auth/login", state.credentials)
+          .then((res) => {
+            setFormErrors(initialFormErrors);
+            localStorage.setItem("token", res.data.token);
+            push("/dashboard");
+            // props.setLoggedIn(true);
+          })
+          .catch((err) => {
+              console.log(err.response)
+            setFormErrors({
+              ...formErrors,
+              navValid: "this account does not exist",
+            });
+          });
     };
 
     const handleChange = (e) => {
