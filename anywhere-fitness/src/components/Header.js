@@ -1,7 +1,7 @@
 import React from 'react'
 import { ButtonGroup } from '@material-ui/core'
 import { Button } from '@material-ui/core'
-import { createTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 const NavLinks = withStyles({
     root: {
@@ -35,9 +35,6 @@ const NavLinks = withStyles({
       },
     },
   })(Button);
-
-
-
 
 
 export default function Header() {
