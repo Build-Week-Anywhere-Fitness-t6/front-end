@@ -73,7 +73,7 @@ const GridContainer = withStyles({
       textAlign: 'center',
       padding: '7px',
       fontSize: 21,
-      fontWeight: 600,
+      fontWeight: 500,
       fontFamily: [
         'Raleway',
         'sans-serif'
