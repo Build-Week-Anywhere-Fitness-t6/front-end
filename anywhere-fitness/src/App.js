@@ -23,7 +23,7 @@ import { Container } from "@material-ui/core";
 
 function App() {
   return (
-    <Container maxWidth='xlg'>
+  <Container maxWidth='xlg'>
     <div className="App">
       <Header/>
       <Switch>
@@ -51,7 +51,7 @@ function App() {
       </Switch>
       <Footer/>
     </div>
-    </Container>
+  </Container>
   );
 }
 

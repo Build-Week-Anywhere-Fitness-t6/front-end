@@ -5,15 +5,15 @@ import { withStyles } from '@material-ui/core/styles';
 
 const NavLinks = withStyles({
     root: {
-      color: '#EBFEF9',  
+      color: '#EBFEF9',
+      backgroundColor: 'rgba(20, 174, 225, 0.1)',  
       boxShadow: 'none',
       textTransform: 'none',
       fontSize: 15,
       fontWeight: 500,
       lineHeight: 1.5,
       letterSpacing: 1.5,
-      padding: '10px 75px',
-      backgroundColor: '#118AB2',
+      padding: '10px 100px',
       fontFamily: [
         'Raleway',
         'sans-serif'
@@ -45,7 +45,7 @@ export default function Header() {
                   href='/'>
                   Anywhere Fitness
                   </a>
-            <ButtonGroup>
+            <ButtonGroup variant='text' >
                 <NavLinks href='/signup'>Sign up</NavLinks>
                 <NavLinks href='/login'>Log in</NavLinks>
             </ButtonGroup>

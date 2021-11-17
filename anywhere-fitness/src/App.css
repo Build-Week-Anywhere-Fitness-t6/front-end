@@ -53,21 +53,19 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #073B4C;
-  height: auto;
+  background-color: #073A4A;
   border-bottom: 3px outset #1190BB;
 }
 .nav-title {
-  padding-left: 11px;
-  font-size: 1.77rem;
-  letter-spacing: 0.2rem;
-  font-weight: 500;
-  color: #EBFEF9;
+  padding-left: 15px;
+  font-size: 2.5rem;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
   text-decoration: none;
+  color: #EBFEF9;
 }
 .nav-title:hover {
   color: #F5A3B8;
-  letter-spacing: 0.2rem;
   transition: 575ms ease-in-out;
 }
 
@@ -75,6 +73,11 @@ nav {
 .home-page {
   height: 90vh;
   width: 100%;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 header {
   background-image: url('./components/images/Gym-photo.jfif');
@@ -103,7 +106,10 @@ header {
   text-shadow: 4px 2px 0px #000;
 }
 .about {
-  font-size: 2rem;
-  color: #EBFEF9;
+  height: 45vh;
 }
+.classes {
+  width: 100%;
+  background-color: teal;
 
+}
