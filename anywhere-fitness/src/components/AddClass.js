@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
+import axiosWithAuth from "../utilities/axiosWithAuth";
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -14,6 +14,8 @@ const initialFormErrors = {
     location: "",
     intensity: "",
     duration: "",
+    type: "",
+    class_size: "",
 };
 
 export default function AddClass() {
@@ -21,11 +23,15 @@ export default function AddClass() {
     const [state,setState] = useState({
         classInfo: {
             name: "",
-            dateTime: "",
+            start_time: "",
             location: "",
             intensity: "",
             duration: "",
+            type: "",
+            class_size: "",
+            instructor_username: "Jared"
         }
+        
     });
 
     const [value, setValue] = React.useState(new Date());
@@ -38,11 +44,22 @@ export default function AddClass() {
 
     const addClass = (e) => {
         e.preventDefault();
+        console.log(state)
+        axiosWithAuth()
+            .post("/classes", state)
+            .then((res) => {
+                push("/dashboard")
+            })
+            .catch((err) => console.log(err));
     }
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
+
+        setState({
+            classInfo: { ...state.classInfo, [name]: value },
+          });
     }
 
     return(
@@ -58,18 +75,20 @@ export default function AddClass() {
                     />
                     <p>{formErrors.name}</p>
                 </label>
-                <label>
+                {/* <label>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DateTimePicker
                             renderInput={(props) => <TextField {...props} />}
                             label="Date & Time"
-                            value={value}
-                            onChange={(newValue) => {
-                            setValue(newValue);
-                            }}
+                            name="start_time"
+                            value={state.start_time}
+                            onChange={handleChange}
+                            // onChange={(newValue) => {
+                            // setValue(newValue);
+                            // }}
                         />  
                     </LocalizationProvider>
-                </label>
+                </label> */}
                 <label>
                     Location:
                     <input
@@ -81,14 +100,48 @@ export default function AddClass() {
                     <p>{formErrors.location}</p>
                 </label>
                 <label>
+                    Time:
+                    <input
+                        type="text"
+                        name="start_time"
+                        value={state.start_time}
+                        onChange={handleChange}
+                    />
+                    <p>{formErrors.location}</p>
+                </label>
+                <label>
+                    Class Type:
+                    <input
+                        type="text"
+                        name="type"
+                        value={state.type}
+                        onChange={handleChange}
+                    />
+                    <p>{formErrors.type}</p>
+                </label>
+                <label>
+                    Maximum Class Size:
+                    <input
+                        type="text"
+                        name="class_size"
+                        value={state.class_size}
+                        onChange={handleChange}
+                    />
+                    <p>{formErrors.class_size}</p>
+                </label>
+                <label>
                     Intensity:
-                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#">Beginner</a>
-                        <a href="#">Intermediate</a>
-                        <a href="#">Advanced</a>
-                    </div>
-                    
+
+                    <select 
+                        value={state.intensity}
+                        onChange={handleChange}
+                        name="intensity"
+                    >
+                    <option value=''>- Choose Intensity -</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    </select>
                 </label>
                 <label>
                     Duration;
@@ -100,6 +153,7 @@ export default function AddClass() {
                     />
                     <p>{formErrors.duration}</p>
                 </label>
+                <button>Create Class</button>
             </form> 
         </div>
     )
