@@ -23,8 +23,8 @@ export default function Class(props) {
                 Edit and delete would take their place if an instructor is viewing the class */}
                  <button>Sign Up</button>
                 <button>Cancel</button>
-             {/* <button>Edit Class</button>
-                <button>Delete Class</button> */}
+                <button>Edit Class</button>
+                <button onClick={props.handleDelete}>Delete Class</button> 
             </div>
         </div>
     )
