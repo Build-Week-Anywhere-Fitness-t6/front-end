@@ -28,7 +28,7 @@ export default function AddClass() {
             intensity: "",
             duration: "",
             type: "",
-            class_size: "",
+            class_size: 30,
             instructor_username: "Jared"
         }
         
@@ -46,7 +46,7 @@ export default function AddClass() {
         e.preventDefault();
         console.log(state)
         axiosWithAuth()
-            .post("/classes", state)
+            .post("/classes", state.classInfo)
             .then((res) => {
                 push("/dashboard")
             })
@@ -75,20 +75,7 @@ export default function AddClass() {
                     />
                     <p>{formErrors.name}</p>
                 </label>
-                {/* <label>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DateTimePicker
-                            renderInput={(props) => <TextField {...props} />}
-                            label="Date & Time"
-                            name="start_time"
-                            value={state.start_time}
-                            onChange={handleChange}
-                            // onChange={(newValue) => {
-                            // setValue(newValue);
-                            // }}
-                        />  
-                    </LocalizationProvider>
-                </label> */}
+
                 <label>
                     Location:
                     <input
@@ -122,7 +109,7 @@ export default function AddClass() {
                 <label>
                     Maximum Class Size:
                     <input
-                        type="text"
+                        type="number"
                         name="class_size"
                         value={state.class_size}
                         onChange={handleChange}
