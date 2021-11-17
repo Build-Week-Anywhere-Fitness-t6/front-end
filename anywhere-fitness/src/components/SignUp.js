@@ -6,6 +6,11 @@ import * as yup from "yup";
 // FormSchema for Validation
 import formSchema from "../Validation/signup&login";
 
+// Material UI imports
+import { Button } from "@material-ui/core"; 
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+
 const initialFormErrors = {
     username: "",
     password: "",
@@ -54,8 +59,8 @@ export default function SignUp() {
       };
 
     return (
-       <div>
-            <h2>Please Create An Account</h2>
+       <div className='login-page signup-page'>
+            <h2>Enter a Username and Password to sign up</h2>
             <form onSubmit={userSignUp}>
             <label>
                 Username:
@@ -76,6 +81,7 @@ export default function SignUp() {
                     onChange={handleChange}
                 />
             </label>
+            <br />
             <select 
               value={form.role}
               onChange={handleChange}
@@ -85,7 +91,15 @@ export default function SignUp() {
               <option value="client">Client</option>
               <option value="instructor">Instructor</option>
             </select>
-                <button >Create</button>
+            <br />
+            <Button 
+                onClick={userSignUp}
+                variant='contained'
+                color='primary'
+                >
+                  <ExitToAppIcon />
+                  click to sign up
+            </Button>
             </form>
         </div>
     )
