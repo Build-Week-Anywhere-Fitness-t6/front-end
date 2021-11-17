@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
+import Footer from './Footer';
 
 // Styling for the header link to sign in
 const NavLinks = withStyles({
@@ -12,7 +13,7 @@ const NavLinks = withStyles({
       fontSize: 15,
       fontWeight: 500,
       lineHeight: 1.5,
-      padding: '10px 4px',
+      padding: '7px 20px',
       backgroundColor: '#118AB2',
       fontFamily: [
         'Raleway',
@@ -21,6 +22,7 @@ const NavLinks = withStyles({
 
       '&:hover': {
         backgroundColor: '#E09D00',
+        color: '#000',
         borderColor: '#074B4C',
         boxShadow: 'none',
       },
@@ -52,10 +54,11 @@ const GridContainer = withStyles({
     root: {
       color: '#ECF9FD',
       backgroundColor: '#073A4A',
+      padding: '10px',
       letterSpacing: 5,
       boxShadow: 'none',
-      fontSize: 47,
-      fontWeight: 600,
+      fontSize: 43,
+      fontWeight: 300,
       fontFamily: [
         'Raleway',
         'sans-serif'
@@ -68,7 +71,8 @@ const GridContainer = withStyles({
       color: '#000',
       backgroundColor: '#F5A4B8',
       textAlign: 'center',
-      fontSize: 25,
+      padding: '7px',
+      fontSize: 21,
       fontWeight: 600,
       fontFamily: [
         'Raleway',
@@ -81,11 +85,12 @@ const GridContainer = withStyles({
     root: {
       height: '33.3vh',
       color: '#000',
+      backgroundColor: '#fff',
       boxShadow: 'none',
       fontSize: 15,
       display: 'flex',
       flexFlow: 'column nowrap',
-      justifyContent: 'space-around',
+      justifyContent: 'center',
       overflowX: 'hidden',
       fontFamily: [
         'Raleway',
@@ -107,11 +112,11 @@ export default function Home() {
            <div className='about'>
              <GridContainer container spacing={12}>
                <GridTitle item xs={12}><h2>About us</h2></GridTitle>
-                <GridInfo item xs={6}>
-                  <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nascetur ridiculus mus mauris vitae ultricies leo integer. Maecenas volutpat blandit aliquam etiam. Suspendisse faucibus interdum posuere lorem. Quam lacus suspendisse faucibus interdum posuere lorem. Nunc non blandit massa enim nec dui nunc mattis. In egestas erat imperdiet sed. Egestas sed sed risus pretium quam vulputate dignissim. Massa massa ultricies mi quis hendrerit dolor magna eget est. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Metus aliquam eleifend mi in nulla posuere.</p>
+                  <div className='about-wrap'>
+                    <div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nascetur ridiculus mus mauris vitae ultricies leo integer. Maecenas volutpat blandit aliquam etiam. Suspendisse faucibus interdum posuere lorem. Quam lacus suspendisse faucibus interdum posuere lorem. Nunc non blandit massa enim nec dui nunc mattis. In egestas erat imperdiet sed. Egestas sed sed risus pretium quam vulputate dignissim. Massa massa ultricies mi quis hendrerit dolor magna eget est. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Metus aliquam eleifend mi in nulla posuere.</p>
+                    </div>
                   </div>
-                  </GridInfo>
              </GridContainer>
              </div>                                                                      
                                                                               {/* this is where the classes will be displayed */}
@@ -185,6 +190,7 @@ export default function Home() {
                 </GridInfo>
             </GridContainer>
             </div>
+            <Footer />
         </div>
     )
 }

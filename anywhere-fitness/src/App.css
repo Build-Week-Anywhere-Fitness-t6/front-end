@@ -41,6 +41,7 @@ html {
 }
 body {
 	line-height: 1;
+  background-color: #031D26;
 }
 
 /* Styling for Header.js */
@@ -65,15 +66,17 @@ nav {
   color: #EBFEF9;
 }
 .nav-title:hover {
-  color: #F5A3B8;
+  color: #E09D00;
   transition: 575ms ease-in-out;
 }
 
 /* Styling for Home.js */
 .home-page {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   overflow: scroll;
+  border-left: 3px solid #073A4A;
+  border-right: 3px solid #073A4A;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -90,26 +93,58 @@ header {
   justify-content: center;
 }
 .header-text {
-  height: 55%;
-  width: 45%;
+  height: 75%;
+  width: 60%;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .header-text h1{
   height: 35%;
   font-size: 10rem;
   font-weight: 400;
   letter-spacing: .3rem;
-  color: #F5A3B8;
-  text-shadow: 4px 2px 0px #000;
+  padding: 0 6%;
+  color: #E09D00;
+  text-shadow: 1px .5px 1px #000;
 }
-.about {
-  height: 45vh;
+.about-wrap {
+  background-color: #fff;
+  color: #000;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.classes {
-  width: 100%;
-  background-color: teal;
-
+.about-wrap div {
+  height: 75%;
+  width: 60%;
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+.about-wrap p {
+  padding: 5%;
+}
+.class-info {
+  height: 80%;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgba(19, 146, 185, 0.1);
+  box-shadow: 0px 0px 2px 0px black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+footer {
+  height: 15vh;
+  color: #fff;
+  background-color: #073A4A;
 }

@@ -21,6 +21,7 @@ const NavLinks = withStyles({
 
       '&:hover': {
         backgroundColor: '#E09D00',
+        color: '#000',
         borderColor: '#073B4C',
         boxShadow: 'none',
       },
