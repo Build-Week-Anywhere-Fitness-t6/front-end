@@ -1,30 +1,31 @@
 import React from 'react'
-import { Button } from '@material-ui/core';
+import { Button, ButtonGroup } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Footer from './Footer';
 
 // Styling for the header link to sign in
-const NavLinks = withStyles({
+const ButtonHome = withStyles({
     root: {
-      color: '#EBFEF9',  
+      color: '#FFE099',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
       boxShadow: 'none',
       textTransform: 'none',
-      fontSize: 15,
+      textShadow: '1px 0.5px 1px black',
+      fontSize: 23,
       fontWeight: 500,
+      letterSpacing: 2,
       lineHeight: 1.5,
-      padding: '7px 20px',
-      backgroundColor: '#118AB2',
       fontFamily: [
         'Raleway',
         'sans-serif'
       ].join(','),
 
       '&:hover': {
-        backgroundColor: '#E09D00',
-        color: '#000',
-        borderColor: '#074B4C',
+        backgroundColor: '#052C39',
+        color: '#fff',
         boxShadow: 'none',
+        fontWeight: 300,
       },
       '&:active': {
         boxShadow: 'none',
@@ -106,7 +107,10 @@ export default function Home() {
             <header>
               <div className='header-text'>
                 <h1>Welcome to Anywhere Fitness</h1>
-                  <NavLinks href='/signup'>Click Here to Join</NavLinks>
+                  <ButtonGroup variant='text' color='primary' aria-label='text button group'>
+                    <ButtonHome href='/signup'>Click here to sign up</ButtonHome>
+                    <ButtonHome href='/login'>Click here to log in</ButtonHome>
+                  </ButtonGroup>
                 </div>
            </header>
            <div className='about'>
@@ -119,16 +123,22 @@ export default function Home() {
                   </div>
              </GridContainer>
              </div>                                                                      
-                                                                              {/* this is where the classes will be displayed */}
+
+
+
+
+
+
+                                                                              {/* Classes page  */}
            <div className='classes'>
              <GridContainer container spacing={12}>
-                                                                              {/* first item is the title that will stretch all the way across the grid */}
+               {/* The titles with the h2 "classes"  */}
               <GridTitle item xs={12}><div className='class-title'><h2>Classes</h2></div></GridTitle>
-                                                                              {/* These three items will be the Grids for each class */}
+              {/* These three are the class names  */}
                 <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
                 <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
                 <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                                                                           {/* These three grid items will display all of the info on the class passed into it  */}
+                {/* These will display the info on the classes  */}
                 <GridInfo item xs={4}>
                   <div className='class-info'>
                     <p>info</p>
@@ -191,6 +201,9 @@ export default function Home() {
             </GridContainer>
             </div>
             <Footer />
+
+
+            {/* Home page ends below  */}
         </div>
     )
 }
