@@ -86,7 +86,14 @@ export default function Login() {
                     />
                          <p>{formErrors.password}</p>
                 </label>
-                <Button onClick={login}>click to log in</Button>
+                <Button 
+                    onClick={login}
+                    color='primary'
+                    variant='contained'
+                    >
+                      <ExitToAppIcon />
+                    click to log in
+                </Button>
             </form>
         </div>
     );

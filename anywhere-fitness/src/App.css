@@ -141,19 +141,16 @@ header {
   justify-content: space-evenly;
 }
 
-
-<<<<<<< HEAD
 /* Styling for the Login Component */
 
 .login-page {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
   height: 55vh;
   width: 35%;
   margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
-  box-shadow: 5px 5px 5px black;
   border-radius: 10px;
 }
 .login-page h2 {
@@ -174,6 +171,9 @@ header {
   font-size: 2.75rem;
   margin: 3% 0;
   color: #033A2B;
+}
+.login-page select {
+  margin-bottom: 7%;
 }
 
 footer {
