@@ -8,7 +8,7 @@ import axios from "axios";
 import formSchema from "../Validation/signup&login";
 
 // Material UI imports
-import { Button } from '@material-ui/core';
+import  {Button}  from '@material-ui/core';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const initialFormErrors = {
@@ -65,7 +65,7 @@ export default function Login() {
     return (
         <div className='login-page'>
           <h2>Enter Username/Password to log in.</h2>
-            <form onSubmit={login}>
+            <form>
                 <label>
                     Username:
                     <input
@@ -86,7 +86,7 @@ export default function Login() {
                     />
                          <p>{formErrors.password}</p>
                 </label>
-                <Button variant='outlined' size='large' color='primary'><ExitToAppIcon fontSize='large' />click to log in</Button>
+                <Button onClick={login}>click to log in</Button>
             </form>
         </div>
     );

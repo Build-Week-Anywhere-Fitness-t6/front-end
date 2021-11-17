@@ -41,7 +41,6 @@ html {
 }
 body {
 	line-height: 1;
-  background-color: #031D26;
 }
 /* Styling for Header.js */
 .App {
@@ -177,16 +176,8 @@ header {
   color: #033A2B;
 }
 
-
-
-
-
-
 footer {
   height: 15vh;
   color: #fff;
   background-color: #073A4A;
 }
-=======
-}
->>>>>>> 5b7f8f10e3a219b51704d8842d2bb8785168f2f0
