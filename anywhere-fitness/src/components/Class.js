@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 export default function Class(props) {
     const { workout } = props;
@@ -23,7 +24,9 @@ export default function Class(props) {
                 Edit and delete would take their place if an instructor is viewing the class */}
                  <button>Sign Up</button>
                 <button>Cancel</button>
-                <button>Edit Class</button>
+                <Link to={`/edit/${workout.class_id}`}>
+                    <button>Edit Class</button>
+                </Link>
                 <button onClick={props.handleDelete}>Delete Class</button> 
             </div>
         </div>
