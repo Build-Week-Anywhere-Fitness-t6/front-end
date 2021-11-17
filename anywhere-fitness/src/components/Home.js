@@ -1,28 +1,31 @@
 import React from 'react'
-import { Button } from '@material-ui/core';
+import { Button, ButtonGroup } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
+import Footer from './Footer';
 
 // Styling for the header link to sign in
-const NavLinks = withStyles({
+const ButtonHome = withStyles({
     root: {
-      color: '#EBFEF9',  
+      color: '#FFE099',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
       boxShadow: 'none',
       textTransform: 'none',
-      fontSize: 15,
+      textShadow: '1px 0.5px 1px black',
+      fontSize: 23,
       fontWeight: 500,
+      letterSpacing: 2,
       lineHeight: 1.5,
-      padding: '10px 4px',
-      backgroundColor: '#118AB2',
       fontFamily: [
         'Raleway',
         'sans-serif'
       ].join(','),
 
       '&:hover': {
-        backgroundColor: '#E09D00',
-        borderColor: '#074B4C',
+        backgroundColor: '#052C39',
+        color: '#fff',
         boxShadow: 'none',
+        fontWeight: 300,
       },
       '&:active': {
         boxShadow: 'none',
@@ -52,10 +55,11 @@ const GridContainer = withStyles({
     root: {
       color: '#ECF9FD',
       backgroundColor: '#073A4A',
+      padding: '10px',
       letterSpacing: 5,
       boxShadow: 'none',
-      fontSize: 47,
-      fontWeight: 600,
+      fontSize: 43,
+      fontWeight: 300,
       fontFamily: [
         'Raleway',
         'sans-serif'
@@ -68,8 +72,9 @@ const GridContainer = withStyles({
       color: '#000',
       backgroundColor: '#F5A4B8',
       textAlign: 'center',
-      fontSize: 25,
-      fontWeight: 600,
+      padding: '7px',
+      fontSize: 21,
+      fontWeight: 500,
       fontFamily: [
         'Raleway',
         'sans-serif'
@@ -81,11 +86,12 @@ const GridContainer = withStyles({
     root: {
       height: '33.3vh',
       color: '#000',
+      backgroundColor: '#fff',
       boxShadow: 'none',
       fontSize: 15,
       display: 'flex',
       flexFlow: 'column nowrap',
-      justifyContent: 'space-around',
+      justifyContent: 'center',
       overflowX: 'hidden',
       fontFamily: [
         'Raleway',
@@ -101,29 +107,38 @@ export default function Home() {
             <header>
               <div className='header-text'>
                 <h1>Welcome to Anywhere Fitness</h1>
-                  <NavLinks href='/signup'>Click Here to Join</NavLinks>
+                  <ButtonGroup variant='text' color='primary' aria-label='text button group'>
+                    <ButtonHome href='/signup'>Click here to sign up</ButtonHome>
+                    <ButtonHome href='/login'>Click here to log in</ButtonHome>
+                  </ButtonGroup>
                 </div>
            </header>
            <div className='about'>
              <GridContainer container spacing={12}>
                <GridTitle item xs={12}><h2>About us</h2></GridTitle>
-                <GridInfo item xs={6}>
-                  <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nascetur ridiculus mus mauris vitae ultricies leo integer. Maecenas volutpat blandit aliquam etiam. Suspendisse faucibus interdum posuere lorem. Quam lacus suspendisse faucibus interdum posuere lorem. Nunc non blandit massa enim nec dui nunc mattis. In egestas erat imperdiet sed. Egestas sed sed risus pretium quam vulputate dignissim. Massa massa ultricies mi quis hendrerit dolor magna eget est. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Metus aliquam eleifend mi in nulla posuere.</p>
+                  <div className='about-wrap'>
+                    <div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nascetur ridiculus mus mauris vitae ultricies leo integer. Maecenas volutpat blandit aliquam etiam. Suspendisse faucibus interdum posuere lorem. Quam lacus suspendisse faucibus interdum posuere lorem. Nunc non blandit massa enim nec dui nunc mattis. In egestas erat imperdiet sed. Egestas sed sed risus pretium quam vulputate dignissim. Massa massa ultricies mi quis hendrerit dolor magna eget est. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Metus aliquam eleifend mi in nulla posuere.</p>
+                    </div>
                   </div>
-                  </GridInfo>
              </GridContainer>
              </div>                                                                      
-                                                                              {/* this is where the classes will be displayed */}
+
+
+
+
+
+
+                                                                              {/* Classes page  */}
            <div className='classes'>
              <GridContainer container spacing={12}>
-                                                                              {/* first item is the title that will stretch all the way across the grid */}
+               {/* The titles with the h2 "classes"  */}
               <GridTitle item xs={12}><div className='class-title'><h2>Classes</h2></div></GridTitle>
-                                                                              {/* These three items will be the Grids for each class */}
+              {/* These three are the class names  */}
                 <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
                 <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
                 <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                                                                           {/* These three grid items will display all of the info on the class passed into it  */}
+                {/* These will display the info on the classes  */}
                 <GridInfo item xs={4}>
                   <div className='class-info'>
                     <p>info</p>
@@ -185,6 +200,10 @@ export default function Home() {
                 </GridInfo>
             </GridContainer>
             </div>
+            <Footer />
+
+
+            {/* Home page ends below  */}
         </div>
     )
 }
