@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Class from "./Class";
 import axios from "axios";
+import axiosWithAuth from "../utilities/axiosWithAuth";
 
 export default function Dashboard() {
     const { push } = useHistory();
@@ -10,8 +11,8 @@ export default function Dashboard() {
 
 
       const getClasses = () => {
-        axios
-          .get("https://ft-anywhere-fitness-6.herokuapp.com/api/classes")
+        axiosWithAuth()
+          .get("/classes")
           .then((res) => {
             setClasses(res.data);
             console.log(res.data)
