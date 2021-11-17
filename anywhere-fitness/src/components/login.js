@@ -34,6 +34,7 @@ export default function Login() {
           .then((res) => {
             setFormErrors(initialFormErrors);
             localStorage.setItem("token", res.data.token);
+            localStorage.setItem("role", res.data.role);
             push("/dashboard");
             // props.setLoggedIn(true);
           })
