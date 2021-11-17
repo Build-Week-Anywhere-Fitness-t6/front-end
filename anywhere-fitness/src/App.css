@@ -43,28 +43,73 @@ body {
 	line-height: 1;
 }
 
-
+/* Styling for Header.js */
 .App {
   text-align: center;
 }
+
 nav {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #118AB2;
+  background-color: #073A4A;
+  border-bottom: 3px outset #1190BB;
 }
 .nav-title {
-  padding-left: 10px;
-  font-size: 1.95rem;
-  font-weight: 600;
+  padding-left: 15px;
+  font-size: 2.5rem;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
+  text-decoration: none;
   color: #EBFEF9;
 }
-nav a {
-  text-decoration: none;
-  background-color: #FFD166;
+.nav-title:hover {
+  color: #F5A3B8;
+  transition: 575ms ease-in-out;
 }
-nav a:hover {
-  background-color: #E09D00;
-  transition: 450ms ease-in-out;
+
+/* Styling for Home.js */
+.home-page {
+  height: 90vh;
+  width: 100%;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+header {
+  background-image: url('./components/images/Gym-photo.jfif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-text {
+  height: 55%;
+  width: 45%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-text h1{
+  height: 35%;
+  font-size: 10rem;
+  font-weight: 400;
+  letter-spacing: .3rem;
+  color: #F5A3B8;
+  text-shadow: 4px 2px 0px #000;
+}
+.about {
+  height: 45vh;
+}
+.classes {
+  width: 100%;
+  background-color: teal;
+
 }
