@@ -19,11 +19,13 @@ const initialFormErrors = {
 export default function AddClass() {
 
     const [state,setState] = useState({
-        name: "",
-        dateTime: "",
-        location: "",
-        intensity: "",
-        duration: "",
+        classInfo: {
+            name: "",
+            dateTime: "",
+            location: "",
+            intensity: "",
+            duration: "",
+        }
     });
 
     const [value, setValue] = React.useState(new Date());
@@ -76,19 +78,27 @@ export default function AddClass() {
                         value={state.location}
                         onChange={handleChange}
                     />
-                    <p>{formErrors.location}location</p>
+                    <p>{formErrors.location}</p>
                 </label>
                 <label>
                     Intensity:
-                    <input
+                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Beginner</a>
+                        <a href="#">Intermediate</a>
+                        <a href="#">Advanced</a>
+                    </div>
                     
-                    />
                 </label>
                 <label>
                     Duration;
                     <input
-                    
+                        type="text"
+                        name="duration"
+                        value={state.duration}
+                        onChange={handleChange}
                     />
+                    <p>{formErrors.duration}</p>
                 </label>
             </form> 
         </div>
