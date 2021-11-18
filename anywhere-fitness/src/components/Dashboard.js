@@ -18,22 +18,6 @@ const GridContainer = withStyles({
     ].join(','),
   },
 })(Grid);
-// Individual styles for class info
-const GridTitle = withStyles({
-  root: {
-    color: '#ECF9FD',
-    backgroundColor: '#073A4A',
-    padding: '10px',
-    letterSpacing: 5,
-    boxShadow: 'none',
-    fontSize: 43,
-    fontWeight: 300,
-    fontFamily: [
-      'Raleway',
-      'sans-serif'
-    ].join(','),
-  },
-})(Grid);
 // Individual Button styles 
 const CButton = withStyles({
   root: {
@@ -42,6 +26,7 @@ const CButton = withStyles({
     padding: '0 25px',
     letterSpacing: 2, 
     backgroundColor: '#078865', 
+    padding: '7px 21px',    
   },
 })(Button);
 const HButton = withStyles({
@@ -50,6 +35,7 @@ const HButton = withStyles({
     fontWeight: 500,
     padding: '0 25px',
     letterSpacing: 2,    
+    padding: '7px 21px',    
   },
 })(Button);
 
@@ -115,7 +101,7 @@ export default function Dashboard() {
                 })}
       </GridContainer>
       <br />
-      <ButtonGroup variant='contained' color='primary'>
+      <ButtonGroup variant='contained'>
         <CButton onClick={handleAdd}>Create a Workout</CButton>
         <HButton href='/'>Home</HButton>
       </ButtonGroup>

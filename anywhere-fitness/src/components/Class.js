@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // Material UI imports 
 import { Button, ButtonGroup, Grid } from '@material-ui/core';
 
+
 // Class Component 
 export default function Class(props) {
     const { workout } = props;
@@ -24,7 +25,7 @@ export default function Class(props) {
                 {/* The goal is to make conditional rendering here. Sign Up is for users, cancel button only shows up 
                 if the are signed up?
                 Edit and delete would take their place if an instructor is viewing the class */}
-                <ButtonGroup variant='text' size='large'>
+                <ButtonGroup variant='contained'>
                     <Button>Sign Up</Button>
                     <Button>Cancel</Button>
                     <Button href={`/edit/${workout.class_id}`}>Edit Class</Button>
