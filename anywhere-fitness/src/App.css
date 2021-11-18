@@ -1,10 +1,5 @@
 /* CSS RESET */ 
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -67,18 +62,7 @@ nav {
   transition: 575ms ease-in-out;
 }
 
-/* Styling for Home.js */
-.home-page {
-  height: 100vh;
-  width: 100%;
-  overflow: scroll;
-  border-left: 3px solid #073A4A;
-  border-right: 3px solid #073A4A;
-}
-::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
+                                    /* Styling for the Header.js*/
 header {
   background-image: url('./components/images/Gym-photo.jfif');
   background-size: cover;
@@ -108,40 +92,44 @@ header {
   color: #E09D00;
   text-shadow: 1px .5px 1px #000;
 }
-.about-wrap {
-  background-color: #fff;
-  color: #000;
-  height: 35vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.about-wrap div {
-  height: 75%;
-  width: 60%;
-  text-align: center;
-  font-size: 2.1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  display: flex;
-  align-items: center;
-}
-.about-wrap p {
-  padding: 5%;
-}
-.class-info {
-  height: 80%;
-  width: 80%;
-  margin: 0 auto;
-  background-color: rgba(19, 146, 185, 0.1);
-  box-shadow: 0px 0px 2px 0px black;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-evenly;
-}
+                                    /* Styling for Home.js */
+  /* Sharing styles with .classes*/
+  .home-page,
+  .classes {
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+    border-left: 3px solid #073A4A;
+    border-right: 3px solid #073A4A;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+  .about-wrap {
+    background-color: #fff;
+    color: #000;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-wrap div {
+    height: 75%;
+    width: 60%;
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+  }
+  .about-wrap p {
+    padding: 5%;
+  }
 
-/* Styling for the Login Component */
+                                    /* Styling for the Login Component */
 
 .login-page {
   background-color: rgba(0, 0, 0, 0.3);
@@ -149,7 +137,7 @@ header {
   width: 35%;
   margin: 0 auto;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   justify-content: space-evenly;
   border-radius: 10px;
 }
@@ -162,13 +150,13 @@ header {
   color: #E72354;
 }
 .login-page input {
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   margin: 3% 0;
   color: #033A2B;
 }
 .login-page form {
   font-weight: 600;
-  font-size: 2.75rem;
+  font-size: 2.35rem;
   margin: 3% 0;
   color: #033A2B;
 }
@@ -176,8 +164,61 @@ header {
   margin-bottom: 7%;
 }
 
+
+                              /* Styling for the create class form page */
+
+
+.createClass-form {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 55vh;
+  width: 45%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+.createClass-form h2 {
+  padding-top: 5%;
+}
+                              /* Styling for the new class the user creates */
+.subclass-title {
+  font-size: 2.5rem;
+  height: 3vh;
+  margin: 0 auto;
+  background-color: #E72354;
+}
+.class-info {
+  padding: 3%;
+  margin: 0 auto;
+  background-color: rgba(19, 146, 185, 0.1);
+  box-shadow: 0px 0px 2px 0px black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+.class-info p {
+  width: 45%;
+  padding: 1%;
+  color: #0C516F;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.class-info h3 {
+  width: 45%;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.button-group {
+  margin-top: 5px;
+}
+.class
+
+                                /* Styling for edit class */
+
+
+                                /*Styling for the footer */
+
 footer {
-  height: 15vh;
+  height: 35vh;
   color: #fff;
   background-color: #073A4A;
 }

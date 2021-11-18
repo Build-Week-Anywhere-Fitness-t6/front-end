@@ -7,13 +7,14 @@ import Footer from './Footer';
 // Styling for the header link to sign in
 const ButtonHome = withStyles({
     root: {
-      color: '#FFE099',
+      color: '#16A0CA',
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
       boxShadow: 'none',
       textTransform: 'none',
       textShadow: '1px 0.5px 1px black',
+      padding: '0 155px',
       fontSize: 23,
-      fontWeight: 500,
+      fontWeight: 300,
       letterSpacing: 2,
       lineHeight: 1.5,
       fontFamily: [
@@ -25,7 +26,38 @@ const ButtonHome = withStyles({
         backgroundColor: '#052C39',
         color: '#fff',
         boxShadow: 'none',
-        fontWeight: 300,
+      },
+      '&:active': {
+        boxShadow: 'none',
+        backgroundColor: '#0062cc',
+        borderColor: '#005cbf',
+      },
+      '&:focus': {
+        boxShadow: '0 0 0 0.2rem rgba(0,124,255,.5)',
+      },
+    },
+  })(Button);
+  const ButtonHome2 = withStyles({
+    root: {
+      color: '#078865',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      boxShadow: 'none',
+      textTransform: 'none',
+      textShadow: '1px 0.5px 1px black',
+      padding: '0 155px',
+      fontSize: 23,
+      fontWeight: 400,
+      letterSpacing: 2,
+      lineHeight: 1.5,
+      fontFamily: [
+        'Raleway',
+        'sans-serif'
+      ].join(','),
+
+      '&:hover': {
+        backgroundColor: '#052C39',
+        color: '#fff',
+        boxShadow: 'none',
       },
       '&:active': {
         boxShadow: 'none',
@@ -107,9 +139,9 @@ export default function Home() {
             <header>
               <div className='header-text'>
                 <h1>Welcome to Anywhere Fitness</h1>
-                  <ButtonGroup variant='text' color='primary' aria-label='text button group'>
-                    <ButtonHome href='/signup'>Click here to sign up</ButtonHome>
-                    <ButtonHome href='/login'>Click here to log in</ButtonHome>
+                  <ButtonGroup variant='text'>
+                    <ButtonHome href='/signup'>Sign Up</ButtonHome>
+                    <ButtonHome2 href='/login'>Log In</ButtonHome2>
                   </ButtonGroup>
                 </div>
            </header>
@@ -122,87 +154,8 @@ export default function Home() {
                     </div>
                   </div>
              </GridContainer>
-             </div>                                                                      
-
-
-
-
-
-
-                                                                              {/* Classes page  */}
-           <div className='classes'>
-             <GridContainer container spacing={12}>
-               {/* The titles with the h2 "classes"  */}
-              <GridTitle item xs={12}><div className='class-title'><h2>Classes</h2></div></GridTitle>
-              {/* These three are the class names  */}
-                <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                {/* These will display the info on the classes  */}
-                <GridInfo item xs={4}>
-                  <div className='class-info'>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                  </div>
-                </GridInfo>
-                <GridInfo item xs={4}>
-                <div className='class-info'>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                  </div>
-                </GridInfo>
-                <GridInfo item xs={4}>
-                <div className='class-info'>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                  </div>
-                </GridInfo>
-                                                                                {/* These three items will be the Grids for each class */}
-                <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                <SubTitle item xs={4}><div className='subclass-title'><h3>Placeholder</h3></div></SubTitle>
-                                                                              {/* These three grid items will display all of the info on the class passed into it  */}
-                <GridInfo item xs={4}>
-                  <div className='class-info'>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                  </div>
-                </GridInfo>
-                <GridInfo item xs={4}>
-                <div className='class-info'>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                  </div>
-                </GridInfo>
-                <GridInfo item xs={4}>
-                <div className='class-info'>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                    <p>info</p>
-                  </div>
-                </GridInfo>
-            </GridContainer>
-            </div>
+             </div>
             <Footer />
-
-
             {/* Home page ends below  */}
         </div>
     )
