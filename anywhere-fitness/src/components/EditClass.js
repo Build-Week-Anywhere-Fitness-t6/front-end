@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams, Link } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
+import axiosWithAuth from "../utilities/axiosWithAuth";
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -17,89 +17,123 @@ const initialFormErrors = {
 };
 
 export default function EditClass() {
+    const { push } = useHistory();
+    const { id } = useParams();
 
-    const [state,setState] = useState({
-        classInfo: {
-            name: "",
-            dateTime: "",
-            location: "",
-            intensity: "",
-            duration: "",
-        }
+    const [formValues, setFormValues] = useState({
+        name: "",
+        start_time: "",
+        location: "",
+        intensity: "",
+        duration: "",
+        type: "",
+        class_size: 30,
+        instructor_username: "Jared"
+    
     });
 
-    const [value, setValue] = React.useState(new Date());
+    useEffect(() => {
+        axiosWithAuth()
+      .get(`/classes/${id}`)
+      .then((res) => {
+        console.log(res.data)
+        setFormValues(res.data);
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
+    }, [id]);
 
-    const [disabled, setDisabled] = useState(true);
-
-    const [formErrors, setFormErrors] = useState(initialFormErrors);
-
-    const { push } = useHistory();
+    const handleChange = (e) => {
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value,
+          });
+    }
 
     const editClass = (e) => {
         e.preventDefault();
-    }
-
-    const handleChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
+        axiosWithAuth()
+            .put(`/classes/${id}`, formValues)
+            .then((res) => {
+                push("/dashboard")
+            })
+            .catch((err) => console.log(err));
     }
 
     return(
         <div className='edit-class'>
             <form onSubmit={editClass}>
-                <label>
+            <label>
                     Name:
                     <input
                         type="text"
                         name="name"
-                        value={state.name}
+                        value={formValues.name}
                         onChange={handleChange}
                     />
-                    <p>{formErrors.name}</p>
                 </label>
-                <label>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DateTimePicker
-                            renderInput={(props) => <TextField {...props} />}
-                            label="Date & Time"
-                            value={value}
-                            onChange={(newValue) => {
-                            setValue(newValue);
-                            }}
-                        />  
-                    </LocalizationProvider>
-                </label>
+
                 <label>
                     Location:
                     <input
                         type="text"
                         name="location"
-                        value={state.location}
+                        value={formValues.location}
                         onChange={handleChange}
                     />
-                    <p>{formErrors.location}</p>
+                </label>
+                <label>
+                    Time:
+                    <input
+                        type="text"
+                        name="start_time"
+                        value={formValues.start_time}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Class Type:
+                    <input
+                        type="text"
+                        name="type"
+                        value={formValues.type}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Maximum Class Size:
+                    <input
+                        type="number"
+                        name="class_size"
+                        value={formValues.class_size}
+                        onChange={handleChange}
+                    />
                 </label>
                 <label>
                     Intensity:
-                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#">Beginner</a>
-                        <a href="#">Intermediate</a>
-                        <a href="#">Advanced</a>
-                    </div>
-                    
+
+                    <select 
+                        value={formValues.intensity}
+                        onChange={handleChange}
+                        name="intensity"
+                    >
+                    <option value=''>- Choose Intensity -</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    </select>
                 </label>
                 <label>
                     Duration;
                     <input
                         type="text"
                         name="duration"
-                        value={state.duration}
+                        value={formValues.duration}
                         onChange={handleChange}
                     />
-                    <p>{formErrors.duration}</p>
                 </label>
+                <button>Submit</button>
             </form> 
         </div>
     )

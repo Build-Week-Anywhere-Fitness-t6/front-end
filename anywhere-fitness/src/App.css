@@ -163,7 +163,11 @@ header {
 .login-page select {
   margin-bottom: 7%;
 }
-                              /* Styling for the new class the user creates */
+
+
+                              /* Styling for the create class form page */
+
+
 .createClass-form {
   background-color: rgba(0, 0, 0, 0.3);
   height: 55vh;
@@ -175,11 +179,16 @@ header {
 .createClass-form h2 {
   padding-top: 5%;
 }
-.class-info {
-  height: 85%;
-  width: 55%;
+                              /* Styling for the new class the user creates */
+.subclass-title {
+  font-size: 2.5rem;
+  height: 3vh;
   margin: 0 auto;
+  background-color: #E72354;
+}
+.class-info {
   padding: 3%;
+  margin: 0 auto;
   background-color: rgba(19, 146, 185, 0.1);
   box-shadow: 0px 0px 2px 0px black;
   display: flex;
@@ -188,6 +197,7 @@ header {
 }
 .class-info p {
   width: 45%;
+  padding: 1%;
   color: #0C516F;
   font-size: 1.75rem;
   font-weight: 600;
@@ -197,13 +207,14 @@ header {
   font-size: 2rem;
   font-weight: 500;
 }
-.added-class {
-  height: 33.3vh;
-  width: 100%;
-}
 .button-group {
   margin-top: 5px;
 }
+.class
+
+                                /* Styling for edit class */
+
+
                                 /*Styling for the footer */
 
 footer {
