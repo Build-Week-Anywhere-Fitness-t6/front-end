@@ -9,7 +9,6 @@ import formSchema from "../Validation/signup&login";
 
 // Material UI imports
 import  {Button}  from '@material-ui/core';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const initialFormErrors = {
     username: "",
@@ -86,12 +85,13 @@ export default function Login() {
                     />
                          <p>{formErrors.password}</p>
                 </label>
+                <br />
+                <br />
                 <Button 
                     onClick={login}
                     color='primary'
                     variant='contained'
                     >
-                      <ExitToAppIcon />
                     click to log in
                 </Button>
             </form>

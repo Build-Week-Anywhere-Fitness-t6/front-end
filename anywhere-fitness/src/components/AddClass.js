@@ -8,6 +8,12 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import { TextField } from "@mui/material";
 
+// Material UI imports 
+import { Button } from "@material-ui/core";
+
+
+
+
 const initialFormErrors = {
     name: "",
     dateTime: "",
@@ -46,7 +52,7 @@ export default function AddClass() {
         e.preventDefault();
         console.log(state)
         axiosWithAuth()
-            .post("/classes", state)
+            .post("/classes", state.classInfo)
             .then((res) => {
                 push("/dashboard")
             })
@@ -63,7 +69,9 @@ export default function AddClass() {
     }
 
     return(
-        <div>
+        <div className='createClass-form login-page'>
+            <h2>Enter required infomation to create a new class</h2>
+            <div className='addClass-wrap'>
             <form onSubmit={addClass}>
                 <label>
                     Name:
@@ -130,8 +138,8 @@ export default function AddClass() {
                     <p>{formErrors.class_size}</p>
                 </label>
                 <label>
+                <div className='dropdown'>
                     Intensity:
-
                     <select 
                         value={state.intensity}
                         onChange={handleChange}
@@ -142,9 +150,10 @@ export default function AddClass() {
                     <option value="intermediate">Intermediate</option>
                     <option value="advanced">Advanced</option>
                     </select>
+                    </div>
                 </label>
                 <label>
-                    Duration;
+                    Duration:
                     <input
                         type="text"
                         name="duration"
@@ -153,8 +162,9 @@ export default function AddClass() {
                     />
                     <p>{formErrors.duration}</p>
                 </label>
-                <button>Create Class</button>
-            </form> 
+                <button>Create a Workout</button>
+            </form>
+          </div> 
         </div>
     )
 }

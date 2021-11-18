@@ -4,6 +4,42 @@ import Class from "./Class";
 import axios from "axios";
 import axiosWithAuth from "../utilities/axiosWithAuth";
 
+// Material UI imports
+import { Grid } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import { Button } from "@material-ui/core";
+// Individual styles for each grid item
+const GridContainer = withStyles({
+  root: {
+    height: 'auto',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    fontFamily: [
+      'Raleway',
+      'sans-serif'
+    ].join(','),
+  },
+})(Grid);
+// Individual styles for class info
+const GridTitle = withStyles({
+  root: {
+    color: '#ECF9FD',
+    backgroundColor: '#073A4A',
+    padding: '10px',
+    letterSpacing: 5,
+    boxShadow: 'none',
+    fontSize: 43,
+    fontWeight: 300,
+    fontFamily: [
+      'Raleway',
+      'sans-serif'
+    ].join(','),
+  },
+})(Grid);
+
+// Dashboard Component start
 export default function Dashboard() {
     const { push } = useHistory();
   const [classes, setClasses] = useState([]);
@@ -46,23 +82,29 @@ export default function Dashboard() {
       };
 
     return (
-        <div>
-            <h1>Welcome to Anywhere Fitness!</h1>
-            <div>
-                {classes.map((workout) => {
+      <div className='classes'>
+      <GridContainer container spacing={12}>
+        <GridTitle item xs={12}><div className='class-title'><h2>Classes</h2></div></GridTitle>
+        {classes.map((workout) => {
                     return (
                         <Class
-                        key={workout.class_id}
-                        workout={workout}
-                        handleDelete={() => {
-                            handleDelete(workout.class_id);
+                          key={workout.class_id}
+                          workout={workout}
+                          handleDelete={() => {
+                          handleDelete(workout.class_id);
                         }}
                         />
                     );
                 })}
-            </div>
-            <button onClick={handleAdd}>Create a Workout</button>
-        </div>
+      </GridContainer>
+      <Button 
+        onClick={handleAdd}
+        variant='contained'
+        color='primary'
+        >
+        Create a Workout
+        </Button>
+     </div>
         
     )
 }

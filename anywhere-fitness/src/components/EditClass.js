@@ -46,7 +46,7 @@ export default function EditClass() {
     }
 
     return(
-        <div>
+        <div className='edit-class'>
             <form onSubmit={editClass}>
                 <label>
                     Name:

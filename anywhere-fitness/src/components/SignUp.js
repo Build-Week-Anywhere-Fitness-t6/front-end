@@ -8,7 +8,6 @@ import formSchema from "../Validation/signup&login";
 
 // Material UI imports
 import { Button } from "@material-ui/core"; 
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 const initialFormErrors = {
@@ -97,7 +96,6 @@ export default function SignUp() {
                 variant='contained'
                 color='primary'
                 >
-                  <ExitToAppIcon />
                   click to sign up
             </Button>
             </form>
