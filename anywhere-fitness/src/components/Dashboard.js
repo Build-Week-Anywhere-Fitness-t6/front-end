@@ -117,7 +117,6 @@ export default function Dashboard() {
       <br />
       <ButtonGroup variant='contained' color='primary'>
         <CButton onClick={handleAdd}>Create a Workout</CButton>
-        <HButton href='/'>Home</HButton>
       </ButtonGroup>
      </div>
         

@@ -5,6 +5,8 @@ import { Button, ButtonGroup, Grid } from '@material-ui/core';
 
 // Class Component 
 export default function Class(props) {
+  const role = localStorage.getItem("role");
+
     const { workout } = props;
     if (!workout) {
         return <h3>Working on getting event information...</h3>;
@@ -21,14 +23,22 @@ export default function Class(props) {
                     <h3>Class Size:</h3><p>{workout.class_size}</p>
                 </div>
              <div className='button-group'>
-                {/* The goal is to make conditional rendering here. Sign Up is for users, cancel button only shows up 
-                if the are signed up?
-                Edit and delete would take their place if an instructor is viewing the class */}
+
                 <ButtonGroup variant='text' size='large'>
-                    <Button>Sign Up</Button>
-                    <Button>Cancel</Button>
-                    <Button href={`/edit/${workout.class_id}`}>Edit Class</Button>
-                    <Button onClick={props.handleDelete}>Delete Class</Button> 
+                     
+                    {
+                    role === "instructor" ?
+                      <div>
+                        <Button href={`/edit/${workout.class_id}`}>Edit Class</Button>
+                        <Button onClick={props.handleDelete}>Delete Class</Button> 
+                      </div>
+
+                      :<div>
+                        <Button>Sign Up</Button>
+                        <Button>Cancel</Button>
+                      </div>
+                    }
+                   
                 </ButtonGroup>
              </div>
             {/* </GridInfo> */}

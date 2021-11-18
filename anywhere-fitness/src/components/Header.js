@@ -38,6 +38,8 @@ const NavLinks = withStyles({
 
 
 export default function Header() {
+  const token = localStorage.getItem("token")
+
     return (
         <div className='header'>
             <nav>
@@ -47,8 +49,19 @@ export default function Header() {
                   Anywhere Fitness
                   </a>
             <ButtonGroup variant='text' >
-                <NavLinks href='/signup'>Sign up</NavLinks>
-                <NavLinks href='/login'>Log in</NavLinks>
+              {token ?
+                <div>
+                  <NavLinks href='/dashboard'>My Classes</NavLinks>
+                  <NavLinks href='/logout'>Sign Out</NavLinks>
+                </div>
+                :
+                <div>
+                  <NavLinks href='/signup'>Sign up</NavLinks>
+                  <NavLinks href='/login'>Log in</NavLinks>
+                </div>
+
+              }
+                
             </ButtonGroup>
             </nav>            
         </div>
