@@ -6,7 +6,7 @@ import axiosWithAuth from "../utilities/axiosWithAuth";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 
 // Material UI imports
 import { Grid } from "@mui/material";
@@ -66,8 +66,22 @@ export default function EditClass() {
     }
 
     return(
-        <Grid container className='login-page' justifyContent='space-evenly' >
             <form>
+                <Grid container xs={12} style={{
+                                  height: '50vh',
+                                  width: '37%',
+                                  margin: '0 auto',
+                                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                  borderRadius: '7px',
+                                  display: 'flex',
+                                  flexFlow: 'row wrap',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-evenly',
+                                  textAlign: 'center',
+                                  }}>
+                <Grid item xs={12}>
+                    <Typography variant='h2'>Edit the selected class</Typography>
+                </Grid>
                 <Grid item xs={12}>
                     <label>
                      Name:
@@ -153,7 +167,7 @@ export default function EditClass() {
                     <Grid item xs={12}>
                         <Button variant='contained' color='primary' onClick={editClass}>Submit</Button>
                     </Grid>
-            </form> 
-        </Grid>
+                </Grid>
+            </form>
     )
 }

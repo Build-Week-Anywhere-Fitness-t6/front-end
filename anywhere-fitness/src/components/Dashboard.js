@@ -6,7 +6,7 @@ import axiosWithAuth from "../utilities/axiosWithAuth";
 
 // Material UI imports
 import { withStyles } from '@material-ui/core/styles';
-import { Button, ButtonGroup, Grid } from "@material-ui/core";
+import { Button, ButtonGroup, Grid, Typography } from "@material-ui/core";
 
 const GridContainer = withStyles({
   root: {
@@ -84,27 +84,36 @@ export default function Dashboard() {
       };
 
     return (
-      <div className='classes'>
-        <div className='class-title'><h2>Classes</h2></div>
-      <GridContainer container justifyContent='center' spacing={3}>
-            {classes.map((workout) => {
-                    return (
-                        <Class
-                          className='class-info'
-                          key={workout.class_id}
-                          workout={workout}
-                          handleDelete={() => {
-                          handleDelete(workout.class_id);
-                        }}
-                        />
-                    );
-                })}
-      </GridContainer>
-      <br />
-      <ButtonGroup variant='contained'>
-        <CButton onClick={handleAdd}>Create a Workout</CButton>
-      </ButtonGroup>
-     </div>
-        
+      <div style={{textAlign: 'center'}}>
+        <GridContainer container xs={12} spacing={5} style={{
+                                            width: '100%',
+                                            margin: '0 auto',
+                                            display: 'flex',
+                                            flexFlow: 'row wrap',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
+                                          }}>
+          <Grid item xs={12}>
+            <Typography variant='h2' style={{textAlign: 'center',}}>Classes</Typography>
+            </Grid>
+              {classes.map((workout) => {
+                      return (
+                          <Class
+                            className='class-info'
+                            key={workout.class_id}
+                            workout={workout}
+                            handleDelete={() => {
+                            handleDelete(workout.class_id);
+                          }}
+                          />
+                      );
+                  })}
+          </GridContainer>
+                  
+              <ButtonGroup variant='contained'>
+                <CButton onClick={handleAdd}>Create a Workout</CButton>
+                <Button href='/'>Home</Button>
+              </ButtonGroup>
+    </div>
     )
 }

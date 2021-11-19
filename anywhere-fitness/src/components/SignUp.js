@@ -7,7 +7,7 @@ import * as yup from "yup";
 import formSchema from "../Validation/signup&login";
 
 // Material UI imports
-import { Button, Grid, Typography } from "@material-ui/core"; 
+import { Button, ButtonGroup, Grid, Typography } from "@material-ui/core"; 
 
 
 const initialFormErrors = {
@@ -58,7 +58,7 @@ export default function SignUp() {
       };
 
     return (
-      <form onSubmit={userSignUp}>
+      <form>
        <Grid container xs={12} style={{
                                   height: '50vh',
                                   width: '37%',
@@ -108,15 +108,19 @@ export default function SignUp() {
                     <option value="instructor">Instructor</option>
                   </select>
                 </Grid>
-                <Grid item xs={12}>
-                <Button 
+                <Grid item xs={12}>  
+                <ButtonGroup variant='text'>
+                  <Button 
                     onClick={userSignUp}
-                    variant='contained'
                     color='primary'
+                    variant='contained'
+                    style={{fontSize: '1.35rem'}}
                     >
-                      click to sign up
+                    click to Sign up
                 </Button>
-                </Grid>
+                <Button href='/' style={{fontSize: '1.35rem'}}>Cancel</Button>
+                </ButtonGroup>
+              </Grid>
           </Grid>
         </form>
     )
