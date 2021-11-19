@@ -12,8 +12,9 @@ import {
 
 const NavLinks = withStyles({
   root: {
-    boxShadow: 'none',
-    textTransform: 'none',
+    color: '#fff',
+    letterSpacing: 3,
+    padding: '15px 45px',
     fontSize: 17,
     fontWeight: 600,
     lineHeight: 1.5,
@@ -52,7 +53,7 @@ export default function Header() {
                   color: '#fff',
                   padding: '0 2%',
                     }}>
-          <Typography variant='h4'>Anywhere Fitness</Typography>
+          <Typography variant='h4' style={{letterSpacing: 2.5, color: '#F5A3B8'}}>Anywhere Fitness</Typography>
             <ButtonGroup variant='text'>
               {token ?
                 <div className='logged-in'>

@@ -13,7 +13,8 @@ const GridContainer = withStyles({
       justifyContent: 'space-around',
       alignItems: 'center',
       margin: '0 auto',
-      backgroundColor: '#7A5600',
+      backgroundColor: '#073A4A',
+      color: '#fff',
       fontFamily: [
         'Raleway',
         'sans-serif'
