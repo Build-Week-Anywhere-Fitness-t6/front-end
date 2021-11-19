@@ -71,9 +71,9 @@ export default function AddClass() {
 
     return(
         <form>
-            <Grid container xs={12} style={{
-                                  height: '50vh',
-                                  width: '37%',
+            <Grid container xs={12} spacing={0} style={{
+                                  height: '75vh',
+                                  width: '50%',
                                   margin: '0 auto',
                                   marginTop: '5%',
                                   border: '3px solid black',
@@ -82,13 +82,13 @@ export default function AddClass() {
                                   display: 'flex',
                                   flexFlow: 'row wrap',
                                   alignItems: 'center',
-                                  justifyContent: 'space-evenly',
+                                  justifyContent: 'space-around',
                                   textAlign: 'center',
                                   }}>
-                <Grid item xs={12}>
-                    <Typography variant='h2' style={{color: '#BE0E34'}}>Enter the required information to create a new class</Typography>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <Typography variant='h3' style={{color: '#BE0E34'}}>Enter the required information to create a new class</Typography>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label>
                         <Typography variant='h4'>Name: </Typography>
                         <input
@@ -100,7 +100,7 @@ export default function AddClass() {
                         <p>{formErrors.name}</p>
                     </label>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label>
                     <Typography variant='h4'>Location: </Typography>
                         <input
@@ -112,7 +112,7 @@ export default function AddClass() {
                         <p>{formErrors.location}</p>
                     </label>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label> 
                     <Typography variant='h4'>Time: </Typography>
                         <input
@@ -124,7 +124,7 @@ export default function AddClass() {
                         <p>{formErrors.location}</p>
                     </label>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label>
                     <Typography variant='h4'>Class Type: </Typography>
                         <input
@@ -136,7 +136,7 @@ export default function AddClass() {
                         <p>{formErrors.type}</p>
                     </label>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label>
                     <Typography variant='h4'>Maximum Class Size: </Typography>
                         <input
@@ -148,7 +148,7 @@ export default function AddClass() {
                         <p>{formErrors.class_size}</p>
                     </label>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label>
                     <div className='dropdown'>
                     <Typography variant='h4'>Intensity: </Typography>
@@ -165,7 +165,7 @@ export default function AddClass() {
                         </div>
                     </label>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
                     <label>
                     <Typography variant='h4'>Duration: </Typography>:
                         <input
@@ -177,7 +177,7 @@ export default function AddClass() {
                         <p>{formErrors.duration}</p>
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Button variant='contained' style={{color: '#FFF', backgroundColor: '#294DA6', padding: '15px 55px'}} onClick={addClass}>Create a Workout</Button>
                 </Grid>
 
