@@ -7,7 +7,7 @@ import * as yup from "yup";
 import formSchema from "../Validation/signup&login";
 
 // Material UI imports
-import { Button } from "@material-ui/core"; 
+import { Button, Grid, Typography } from "@material-ui/core"; 
 
 
 const initialFormErrors = {
@@ -58,47 +58,66 @@ export default function SignUp() {
       };
 
     return (
-       <div className='login-page signup-page'>
-            <h2>Enter a Username and Password to sign up</h2>
-            <form onSubmit={userSignUp}>
-            <label>
-                Username:
-                <input
-                    type="text"
-                    name="username"
-                    value={form.username}
+      <form onSubmit={userSignUp}>
+       <Grid container xs={12} style={{
+                                  height: '50vh',
+                                  width: '37%',
+                                  margin: '0 auto',
+                                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                  borderRadius: '7px',
+                                  display: 'flex',
+                                  flexFlow: 'row wrap',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-evenly',
+                                  textAlign: 'center',
+                                  }}>
+            <Grid item xs={9}>
+              <Typography variant='h2' style={{color: '#DC1849'}}>Enter a Username and Password to sign up</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <label>
+                    <Typography variant='h4'>Username: </Typography>
+                    <input
+                        type="text"
+                        name="username"
+                        value={form.username}
+                        onChange={handleChange}
+                    />
+                  </label>
+              </Grid>
+                  <p>{formErrors.username}</p>
+              <Grid item xs={6}>
+                  <label>
+                      <Typography variant='h4'>Password: </Typography>
+                      <input
+                          type="text"
+                          name="password"
+                          value={form.password}
+                          onChange={handleChange}
+                      />
+                  </label>
+              </Grid>
+              <Grid item>
+                  <select 
+                    value={form.role}
                     onChange={handleChange}
-                />
-            </label>
-            <p>{formErrors.username}</p>
-            <label>
-                Password:
-                <input
-                    type="text"
-                    name="password"
-                    value={form.password}
-                    onChange={handleChange}
-                />
-            </label>
-            <br />
-            <select 
-              value={form.role}
-              onChange={handleChange}
-              name="role"
-            >
-              <option value=''>- Choose Account -</option>
-              <option value="client">Client</option>
-              <option value="instructor">Instructor</option>
-            </select>
-            <br />
-            <Button 
-                onClick={userSignUp}
-                variant='contained'
-                color='primary'
-                >
-                  click to sign up
-            </Button>
-            </form>
-        </div>
+                    name="role"
+                  >
+                    <option value=''>- Choose Account -</option>
+                    <option value="client">Client</option>
+                    <option value="instructor">Instructor</option>
+                  </select>
+                </Grid>
+                <Grid item xs={12}>
+                <Button 
+                    onClick={userSignUp}
+                    variant='contained'
+                    color='primary'
+                    >
+                      click to sign up
+                </Button>
+                </Grid>
+          </Grid>
+        </form>
     )
 }

@@ -54,7 +54,7 @@ const HeroGrid = withStyles({
 
   const NavLinks = withStyles({
     root: {
-      color: '#0AC291',
+      color: '#35BCE9',
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
       letterSpacing: 5,
       padding: '7px 45px',
@@ -87,7 +87,7 @@ const HeroGrid = withStyles({
       letterSpacing: 2,
       fontSize: 18,
       fontWeight: 500,
-      padding: '3.7%',
+      padding: '4.1%',
       textAlign: 'center',
       fontFamily: [
         'Raleway',
@@ -123,7 +123,7 @@ export default function Home() {
                     </div>
                     :
                     <div className='new-user'>
-                      <NavLinks href='/signup'>Sign Up</NavLinks>
+                      <NavLinks href='/signup' style={{color: '#0AC291'}}>Sign Up</NavLinks>
                       <NavLinks href='/login'>Log in</NavLinks>
                     </div>
                     }
