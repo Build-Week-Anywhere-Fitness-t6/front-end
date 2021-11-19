@@ -51,7 +51,37 @@ const HeroGrid = withStyles({
       ].join(','),
     },
   })(Grid);
+
+  const NavLinks = withStyles({
+    root: {
+      color: '#0AC291',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      letterSpacing: 5,
+      padding: '7px 45px',
+      fontSize: 17,
+      fontWeight: 600,
+      lineHeight: 1.5,
+      fontFamily: [
+        'Raleway',
+        'sans-serif'
+      ].join(','),
   
+      '&:hover': {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        color: '#000',
+        boxShadow: 'none',
+      },
+      '&:active': {
+        boxShadow: 'none',
+        backgroundColor: '#0062cc',
+        borderColor: '#005cbf',
+      },
+      '&:focus': {
+        boxShadow: '0 0 0 0.2rem rgba(0,124,255,.5)',
+      },
+    },
+  })(Button);
+
   const PGrid = withStyles({
     root: {
       letterSpacing: 2,
@@ -68,15 +98,41 @@ const HeroGrid = withStyles({
 
 
 
+
 export default function Home() {
+  const token = localStorage.getItem("token");
+
     return (
         <HomePageContainer container xs={12} justifyContent='center'>
             <HeroGrid item xs={12} className='hero-image'>
-                <Typography>Welcome to Anywhere Fitness</Typography>
+              <div className='hero-text'>
+                <Typography 
+                    style={{
+                      color: '#FFC233', 
+                      letterSpacing: 5, 
+                      fontSize: '8rem',
+                      textShadow: '2px 1px 1px black',
+                    }}
+                  >Welcome to Anywhere Fitness
+                </Typography>
+                <div className='hero-buttons'>
+                    {token ?
+                    <div className='logged-in'>
+                      <NavLinks href='/dashboard'>Dashboard</NavLinks>
+                      <NavLinks href='/logout' style={{color: '#F17E9B'}}>Log out</NavLinks>
+                    </div>
+                    :
+                    <div className='new-user'>
+                      <NavLinks href='/signup'>Sign Up</NavLinks>
+                      <NavLinks href='/login'>Log in</NavLinks>
+                    </div>
+                    }
+                </div>
+              </div>
            </HeroGrid>
 
             <Grid container xs={12} justifyContent='center' alignItems='center'>
-               <TitleGrid item xs={12} style={{backgroundColor: '#073A4A', color: '#FFF'}}>
+               <TitleGrid item xs={12} style={{backgroundColor: '#073A4A', color: '#FFC233'}}>
                  <Typography variant='h2'>About us</Typography>
                </TitleGrid>
                <TitleGrid item xs={3}>
@@ -89,6 +145,7 @@ export default function Home() {
                   </PGrid>
             </Grid>
             {/* Home page ends below  */}
+            <Footer />
         </HomePageContainer>
     )
 }
