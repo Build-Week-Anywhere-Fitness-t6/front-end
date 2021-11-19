@@ -25,7 +25,7 @@ function App() {
   return (
   <Container maxWidth='xl'>
     <div className="App">
-      <Header/>
+    <Header />
       <Switch>
         <Route path="/edit/:id" component={EditClass}/>
         <Route path="/add" component={AddClass}/>

@@ -1,69 +1,130 @@
-import React from 'react'
-import { ButtonGroup } from '@material-ui/core'
-import { Button } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles';
+import React, {useState} from 'react';
 
-const NavLinks = withStyles({
-    root: {
-      color: '#EBFEF9',
-      backgroundColor: 'rgba(20, 174, 225, 0.1)',  
-      boxShadow: 'none',
-      textTransform: 'none',
-      fontSize: 15,
-      fontWeight: 500,
-      lineHeight: 1.5,
-      letterSpacing: 1.5,
-      padding: '10px 100px',
-      fontFamily: [
-        'Raleway',
-        'sans-serif'
-      ].join(','),
+// Material UI imports 
+import {
+  AppBar,
+  Toolbar,
+  Popover,
+  Typography,
+  makeStyles,
+  Button,
+  ButtonGroup,
+  MenuItem,
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
-      '&:hover': {
-        backgroundColor: '#E09D00',
-        color: '#000',
-        borderColor: '#073B4C',
-        boxShadow: 'none',
-      },
-      '&:active': {
-        boxShadow: 'none',
-        backgroundColor: '#0062cc',
-        borderColor: '#005cbf',
-      },
-      '&:focus': {
-        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-      },
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  button: {
+    color: '#000',
+    fontSize: '2rem',
+    textTransform: 'none',
+    margin: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      minWidth: 32,
+      padding: '0 9%',
+      
+      "& .MuiButton-startIcon": {
+        margin: 0
+      }
     },
-  })(Button);
-
+    '&:hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      color: '#000',
+      boxShadow: 'none',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: '#0062cc',
+      borderColor: '#005cbf',
+    },
+    '&:focus': {
+      boxShadow: '0 0 0 0.2rem rgba(0,124,255,.5)',
+    },
+  },
+  buttonText: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  }
+}));
 
 export default function Header() {
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
+
+  // Material UI states for resizing
+  const [openClose, setOpenClose] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const classes = useStyles();
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+  // end material UI                                                                                                      
 
     return (
-        <div className='header'>
-            <nav>
-                <a 
-                  className='nav-title' 
-                  href='/'>
-                  Anywhere Fitness
-                  </a>
-            <ButtonGroup variant='text' >
+      <>
+      <AppBar position='static' className={classes.root}>
+        <Toolbar style={{
+                  color: '#fff',
+                  backgroundColor: '#294DA6',
+                  padding: '0 2%',
+                  display: 'flex',
+                  flexFlow: 'row nowrap',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'}}>
+
+        <Button variant='text' aria-describedby={id} onClick={handleClick}>
+          <MenuIcon style={{fontSize: '3rem'}} />
+          </Button>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{vertical: 'bottom',horizontal: 'left'}}>
               {token ?
-                <div>
-                  <NavLinks href='/dashboard'>My Classes</NavLinks>
-                  <NavLinks href='/logout'>Sign Out</NavLinks>
+                  <div className='logged-in'>
+                    <Button style={{padding: '7px 25px'}} href='/dashboard'>Dashboard</Button>
+                    <Button style={{padding: '7px 25px'}} href='/logout'>Log out</Button>
+                  </div>
+                    :
+                  <div className='new-user'>
+                    <Button style={{padding: '7px 25px'}} href='/signup'>Sign Up</Button>
+                    <Button style={{padding: '7px 25px'}} href='/login'>Log In</Button>
+                  </div>}
+        </Popover>      
+          <Button href='/' style={{
+                              color: '#FFC233', 
+                              fontSize: '2rem', 
+                              textDecoration: 'none'
+                              }}>Anywhere Fitness
+          </Button>
+            <ButtonGroup variant='text'>
+
+             {/* Conditional rendering of buttons depending on account type */}
+              {token ?
+                <div className='logged-in'>
+                  <Button href='/dashboard' className={classes.button}><span className={classes.buttonText}>Dashboard</span></Button>
+                  <Button href='/logout' className={classes.button}><span className={classes.buttonText}>Log Out</span></Button>
                 </div>
                 :
-                <div>
-                  <NavLinks href='/signup'>Sign up</NavLinks>
-                  <NavLinks href='/login'>Log in</NavLinks>
-                </div>
-
-              }
-                
+                <div className='new-user'>
+                  <Button href='/signup' className={classes.button}><span className={classes.buttonText}>Sign Up</span></Button>
+                  <Button href='/login' className={classes.button}><span className={classes.buttonText}>Log In</span></Button>
+                </div>}
             </ButtonGroup>
-            </nav>            
-        </div>
+        </Toolbar>
+      </AppBar>
+      </>
     )
 }
