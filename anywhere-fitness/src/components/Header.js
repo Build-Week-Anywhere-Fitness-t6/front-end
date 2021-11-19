@@ -83,24 +83,26 @@ export default function Header() {
                   justifyContent: 'space-between',
                   alignItems: 'center'}}>
 
-        <Button variant='text' aria-describedby={id} onClick={handleClick}><MenuIcon fontSize='large'/></Button>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{vertical: 'bottom',horizontal: 'left'}}>
-            {token ?
-                <div className='logged-in'>
-                  <Button href='/dashboard'>Dashboard</Button>
-                  <Button href='/logout'>Log out</Button>
-                </div>
-                  :
-                <div className='new-user'>
-                  <Button href='/signup'>Sign Up</Button>
-                  <Button href='/login'>Log In</Button>
-                </div>}
-      </Popover>      
+        <Button variant='text' aria-describedby={id} onClick={handleClick}>
+          <MenuIcon style={{fontSize: '3rem'}} />
+          </Button>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{vertical: 'bottom',horizontal: 'left'}}>
+              {token ?
+                  <div className='logged-in'>
+                    <Button style={{padding: '7px 25px'}} href='/dashboard'>Dashboard</Button>
+                    <Button style={{padding: '7px 25px'}} href='/logout'>Log out</Button>
+                  </div>
+                    :
+                  <div className='new-user'>
+                    <Button style={{padding: '7px 25px'}} href='/signup'>Sign Up</Button>
+                    <Button style={{padding: '7px 25px'}} href='/login'>Log In</Button>
+                  </div>}
+        </Popover>      
           <Button href='/' style={{
                               color: '#FFC233', 
                               fontSize: '2rem', 
