@@ -54,7 +54,7 @@ const HeroGrid = withStyles({
 
   const NavLinks = withStyles({
     root: {
-      color: '#35BCE9',
+      color: '#fff',
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
       letterSpacing: 5,
       padding: '7px 45px',

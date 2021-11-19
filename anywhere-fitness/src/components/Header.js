@@ -53,7 +53,7 @@ export default function Header() {
                   color: '#fff',
                   padding: '0 2%',
                     }}>
-          <Typography variant='h4' style={{letterSpacing: 2.5, color: '#FFC233'}}>Anywhere Fitness</Typography>
+          <Button href='/' style={{color: '#FFC233', fontSize: '2rem', textDecoration: 'none'}}>Anywhere Fitness</Button>
             <ButtonGroup variant='text'>
               {token ?
                 <div className='logged-in'>
