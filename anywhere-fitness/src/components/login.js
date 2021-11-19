@@ -67,8 +67,10 @@ export default function Login() {
                                   height: '50vh',
                                   width: '37%',
                                   margin: '0 auto',
-                                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                  marginTop: '5%',
+                                  border: '3px solid black',
                                   borderRadius: '7px',
+                                  backgroundColor: '#CDD3DF',
                                   display: 'flex',
                                   flexFlow: 'row wrap',
                                   alignItems: 'center',
@@ -76,7 +78,7 @@ export default function Login() {
                                   textAlign: 'center',
                                   }}>
               <Grid item xs={9}>
-                <Typography variant='h2' style={{color: '#DC1849'}}>Enter a Username and Password to sign up</Typography>
+                <Typography variant='h2' style={{color: '#DC1849'}}>Enter Username/Password to Log in</Typography>
               </Grid>
               <Grid item xs={6}>
                 <label>
@@ -102,17 +104,16 @@ export default function Login() {
                          <p>{formErrors.password}</p>
                   </label>
               </Grid>
-              <Grid item xs={6}>  
-                <ButtonGroup variant='text'>
+              <Grid item xs={12}>  
+                <ButtonGroup variant='contained'>
                   <Button 
                     onClick={login}
                     color='primary'
-                    variant='contained'
-                    style={{fontSize: '1.35rem'}}
+                    style={{padding: '10px 55px'}}
                     >
                     click to log in
                 </Button>
-                <Button href='/' style={{fontSize: '1.35rem'}}>Cancel</Button>
+                <Button href='/' style={{padding: '10px 55px'}}>Cancel</Button>
                 </ButtonGroup>
               </Grid>
         </Grid>

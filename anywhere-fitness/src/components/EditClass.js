@@ -67,24 +67,26 @@ export default function EditClass() {
 
     return(
             <form>
-                <Grid container xs={12} style={{
-                                  height: '50vh',
-                                  width: '37%',
+                <Grid container xs={12} spacing={1} style={{
+                                  height: '60vh',
+                                  width: '50%',
                                   margin: '0 auto',
-                                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                  marginTop: '5%',
+                                  border: '3px solid black',
                                   borderRadius: '7px',
+                                  backgroundColor: '#CDD3DF',
                                   display: 'flex',
                                   flexFlow: 'row wrap',
                                   alignItems: 'center',
                                   justifyContent: 'space-evenly',
-                                  textAlign: 'center',
+                                  textAlign: 'center'
                                   }}>
-                <Grid item xs={12}>
+                <Grid item xs={12} style={{color: '#BE0E34'}}>
                     <Typography variant='h2'>Edit the selected class</Typography>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                     Name:
+                     <Typography variant='h4'>Name: </Typography>
                         <input
                             type="text"
                             name="name"
@@ -93,9 +95,9 @@ export default function EditClass() {
                         />
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                        Location:
+                    <Typography variant='h4'>Location: </Typography>
                         <input
                             type="text"
                             name="location"
@@ -104,9 +106,9 @@ export default function EditClass() {
                         />
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                        Time:
+                    <Typography variant='h4'>Time: </Typography>
                         <input
                             type="text"
                             name="start_time"
@@ -115,9 +117,9 @@ export default function EditClass() {
                         />
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                        Class Type:
+                    <Typography variant='h4'>Class Type: </Typography>
                         <input
                             type="text"
                             name="type"
@@ -126,9 +128,9 @@ export default function EditClass() {
                         />
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                        Maximum Class Size:
+                    <Typography variant='h4'>Max Class Size: </Typography>
                         <input
                             type="number"
                             name="class_size"
@@ -137,9 +139,9 @@ export default function EditClass() {
                         />
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                        Intensity:
+                    <Typography variant='h4'>Intensity: </Typography>
 
                         <select 
                             value={formValues.intensity}
@@ -153,9 +155,9 @@ export default function EditClass() {
                         </select>
                     </label>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <label>
-                        Duration;
+                    <Typography variant='h4'>Duration: </Typography>
                         <input
                             type="text"
                             name="duration"
@@ -165,7 +167,7 @@ export default function EditClass() {
                     </label>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant='contained' color='primary' onClick={editClass}>Submit</Button>
+                        <Button variant='contained' color='primary' style={{padding: '5px 75px'}} onClick={editClass}>Submit</Button>
                     </Grid>
                 </Grid>
             </form>

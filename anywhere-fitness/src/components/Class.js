@@ -13,16 +13,22 @@ export default function Class(props) {
         return <h3>Working on getting event information...</h3>;
       }
     return (
-          <Grid item xs={12} sm={9} md={9} lg={5} style={{
+          <Grid item xs={12} sm={12} md={12} lg={5} style={{
+                                                      height: '36vh',
+                                                      border: '3px solid black',
+                                                      borderRadius: '7px',
+                                                      backgroundColor: '#F3F4F7',
+                                                      margin: '0 auto',
+                                                      marginBottom: '1%',
                                                       display: 'flex',
                                                       flexFlow: 'row wrap',
-                                                      justifyContent: 'space-between',
                                                       alignItems: 'center',
-                                                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                                      margin: '2%',
-                                                      padding: '2%'
+                                                      justifyContent: 'space-evenly',
+                                                      textAlign: 'center',
                                                   }}>
-                    <Typography variant='h4' style={{backgroundColor: '#DC1849', width: '100%'}}>{workout.name}</Typography>
+
+                                                    
+                    <Typography variant='h4' style={{backgroundColor: '#294DA6', color: '#FFC233', width: '100%'}}>{workout.name}</Typography>
                     <Typography variant='h4' style={{width: '50%'}}>{workout.intensity}: </Typography> <Typography variant='p' style={{width: '50%', fontSize: '1.35rem', fontWeight: 600}}>{workout.type}</Typography>
                     <Typography variant='h4' style={{width: '50%'}}>Start Time:</Typography> <Typography variant='p' style={{width: '50%', fontSize: '1.35rem', fontWeight: 600}}>{workout.start_time}</Typography>
                     <Typography variant='h4' style={{width: '50%'}}>Duration:</Typography> <Typography variant='p' style={{width: '50%', fontSize: '1.35rem', fontWeight: 600}}>{workout.duration}</Typography>
@@ -30,11 +36,11 @@ export default function Class(props) {
                     <Typography variant='h4' style={{width: '50%'}}>Instructor:</Typography> <Typography variant='p' style={{width: '50%', fontSize: '1.35rem', fontWeight: 600}}>{workout.instructor_username}</Typography>
                     <Typography variant='h4' style={{width: '50%'}}>Class Size:</Typography><Typography variant='p' style={{width: '50%', fontSize: '1.35rem', fontWeight: 600}}>{workout.class_size}</Typography>
 
-                  <ButtonGroup variant='text' size='large' style={{width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+                  <ButtonGroup variant='text' style={{width: '100%', alignItems: 'center', justifyContent: 'center'}}>
                     {token ?
                       <div>
-                        <Button href={`/edit/${workout.class_id}`}>Edit Class</Button>
-                        <Button onClick={props.handleDelete}>Delete Class</Button> 
+                        <Button style={{backgroundColor: '#86A776', padding: '2px 25px', margin: '10px 5px',}}href={`/edit/${workout.class_id}`}>Edit Class</Button>
+                        <Button style={{backgroundColor: '#BE0E34', padding: '2px 25px', margin: '10px 5px', color: '#FFF'}}onClick={props.handleDelete}>Delete Class</Button> 
                       </div>
                       :
                       <div>

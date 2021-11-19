@@ -63,8 +63,10 @@ export default function SignUp() {
                                   height: '50vh',
                                   width: '37%',
                                   margin: '0 auto',
-                                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                  marginTop: '5%',
+                                  border: '3px solid black',
                                   borderRadius: '7px',
+                                  backgroundColor: '#CDD3DF',
                                   display: 'flex',
                                   flexFlow: 'row wrap',
                                   alignItems: 'center',
@@ -72,7 +74,7 @@ export default function SignUp() {
                                   textAlign: 'center',
                                   }}>
             <Grid item xs={9}>
-              <Typography variant='h2' style={{color: '#DC1849'}}>Enter a Username and Password to sign up</Typography>
+              <Typography variant='h2' style={{color: '#DC1849'}}>Choose a Username/Password to create an account</Typography>
               </Grid>
               <Grid item xs={6}>
                 <label>
@@ -109,16 +111,16 @@ export default function SignUp() {
                   </select>
                 </Grid>
                 <Grid item xs={12}>  
-                <ButtonGroup variant='text'>
+                <ButtonGroup variant='contained'>
                   <Button 
                     onClick={userSignUp}
                     color='primary'
                     variant='contained'
-                    style={{fontSize: '1.35rem'}}
+                    style={{padding: '10px 55px'}}
                     >
                     click to Sign up
                 </Button>
-                <Button href='/' style={{fontSize: '1.35rem'}}>Cancel</Button>
+                <Button href='/' style={{padding: '10px 55px'}}>Cancel</Button>
                 </ButtonGroup>
               </Grid>
           </Grid>

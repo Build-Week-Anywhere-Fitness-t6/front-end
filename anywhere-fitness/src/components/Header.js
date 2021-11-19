@@ -45,13 +45,13 @@ export default function Header() {
     return (
       <AppBar position='static'>
         <Toolbar style={{
-                  backgroundColor: '#073A4A',
+                  color: '#fff',
+                  backgroundColor: '#294DA6',
+                  padding: '0 2%',
                   display: 'flex',
                   flexFlow: 'row nowrap',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  color: '#fff',
-                  padding: '0 2%',
                     }}>
           <Button href='/' style={{color: '#FFC233', fontSize: '2rem', textDecoration: 'none'}}>Anywhere Fitness</Button>
             <ButtonGroup variant='text'>

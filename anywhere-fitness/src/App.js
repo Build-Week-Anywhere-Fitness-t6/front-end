@@ -23,7 +23,7 @@ import { Container } from "@material-ui/core";
 
 function App() {
   return (
-  <Container maxWidth={false}>
+  <Container maxWidth='xl'>
     <div className="App">
     <Header />
       <Switch>

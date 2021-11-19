@@ -8,13 +8,13 @@ import { Grid } from '@material-ui/core';
 const GridContainer = withStyles({
     root: {
       height: '11vh',
+      margin: '0 auto',
+      color: '#fff',
+      backgroundColor: '#294DA6',
       display: 'flex',
       flexFlow: 'row wrap',
       justifyContent: 'space-around',
       alignItems: 'center',
-      margin: '0 auto',
-      backgroundColor: '#073A4A',
-      color: '#fff',
       fontFamily: [
         'Raleway',
         'sans-serif'
@@ -36,7 +36,7 @@ const GridContainer = withStyles({
 
 export default function Footer() {
     return (
-        <GridContainer className='footer' xs={11}>
+        <GridContainer className='footer' xs={12}>
             <BottomP item xs={12}>Footer</BottomP>
         </GridContainer>
     )

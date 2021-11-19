@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 
 // Material UI imports
-import { Button, ButtonGroup, Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Footer from './Footer';
@@ -12,10 +12,13 @@ const HomePageContainer = withStyles({
   root: {
     height: '100%',
     overflow: 'scroll',
+    margin: '0 auto',
     display: 'flex',
     flexFlow: 'row wrap',
     alignItems: 'center',
-    boxSizing: 'border-box',
+
+    backgroundColor: '#294DA6',
+
     fontFamily: [
       'Raleway',
       'sans-serif'
@@ -131,9 +134,9 @@ export default function Home() {
               </div>
            </HeroGrid>
 
-            <Grid container xs={12} justifyContent='center' alignItems='center'>
-               <TitleGrid item xs={12} style={{backgroundColor: '#073A4A', color: '#FFC233'}}>
-                 <Typography variant='h2'>About us</Typography>
+            <Grid container xs={12} justifyContent='center' alignItems='center' style={{backgroundColor: '#F3F4F7'}}>
+               <TitleGrid item xs={12} style={{backgroundColor: '#294DA6', color: '#FFC233'}}>
+                 <Typography variant='h2' style={{letterSpacing: 5}}>About us</Typography>
                </TitleGrid>
                <TitleGrid item xs={3}>
                  <Typography variant='h3'>Our Mission: </Typography>

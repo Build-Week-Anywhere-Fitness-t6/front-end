@@ -75,8 +75,10 @@ export default function AddClass() {
                                   height: '50vh',
                                   width: '37%',
                                   margin: '0 auto',
-                                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                  marginTop: '5%',
+                                  border: '3px solid black',
                                   borderRadius: '7px',
+                                  backgroundColor: '#CDD3DF',
                                   display: 'flex',
                                   flexFlow: 'row wrap',
                                   alignItems: 'center',
@@ -84,7 +86,7 @@ export default function AddClass() {
                                   textAlign: 'center',
                                   }}>
                 <Grid item xs={12}>
-                    <Typography variant='h2'>Enter the required information to create a new class</Typography>
+                    <Typography variant='h2' style={{color: '#BE0E34'}}>Enter the required information to create a new class</Typography>
                 </Grid>
                 <Grid item xs={6}>
                     <label>
@@ -176,7 +178,7 @@ export default function AddClass() {
                     </label>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button onClick={addClass}>Create a Workout</Button>
+                    <Button variant='contained' style={{color: '#FFF', backgroundColor: '#294DA6', padding: '15px 55px'}} onClick={addClass}>Create a Workout</Button>
                 </Grid>
 
             </Grid>

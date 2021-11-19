@@ -18,26 +18,7 @@ const GridContainer = withStyles({
     ].join(','),
   },
 })(Grid);
-// Individual Button styles 
-const CButton = withStyles({
-  root: {
-    fontSize: '1.7rem',
-    fontWeight: 500,
-    padding: '0 25px',
-    letterSpacing: 2, 
-    backgroundColor: '#078865', 
-    padding: '7px 21px',    
-  },
-})(Button);
-const HButton = withStyles({
-  root: {
-    fontSize: '1.7rem',
-    fontWeight: 500,
-    padding: '0 25px',
-    letterSpacing: 2,    
-    padding: '7px 21px',    
-  },
-})(Button);
+
 
 
 
@@ -88,13 +69,14 @@ export default function Dashboard() {
         <GridContainer container xs={12} spacing={5} style={{
                                             width: '100%',
                                             margin: '0 auto',
+                                            backgroundColor: '#6689E1',
                                             display: 'flex',
                                             flexFlow: 'row wrap',
                                             justifyContent: 'center',
                                             textAlign: 'center',
                                           }}>
-          <Grid item xs={12}>
-            <Typography variant='h2' style={{textAlign: 'center',}}>Classes</Typography>
+          <Grid item xs={12} style={{backgroundColor: '#A1B9F7'}}>
+            <Typography variant='h2' style={{textAlign: 'center', letterSpacing: 5, color: '#000'}}>Classes</Typography>
             </Grid>
               {classes.map((workout) => {
                       return (
@@ -110,9 +92,9 @@ export default function Dashboard() {
                   })}
           </GridContainer>
                   
-              <ButtonGroup variant='contained'>
-                <CButton onClick={handleAdd}>Create a Workout</CButton>
-                <Button href='/'>Home</Button>
+              <ButtonGroup color='primary' variant='contained' style={{marginTop: '1%'}}>
+                <Button style={{padding: '15px 75px'}} onClick={handleAdd}>Create a Workout</Button>
+                <Button style={{padding: '15px 75px'}} href='/'>Home</Button>
               </ButtonGroup>
     </div>
     )
