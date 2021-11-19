@@ -37,97 +37,19 @@ html {
 body {
 	line-height: 1;
 }
-/* Styling for Header.js */
-.App {
-  text-align: center;
-}
-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #073A4A;
-  border-bottom: 3px outset #1190BB;
-}
-.nav-title {
-  padding-left: 15px;
-  font-size: 2.5rem;
-  letter-spacing: 0.3rem;
-  font-weight: 400;
-  text-decoration: none;
-  color: #EBFEF9;
-}
-.nav-title:hover {
-  color: #E09D00;
-  transition: 575ms ease-in-out;
-}
-
                                     /* Styling for the Header.js*/
-header {
+.hero-image {
   background-image: url('./components/images/Gym-photo.jfif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 55vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.header-text {
-  height: 75%;
-  width: 60%;
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.15);
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-around;
-}
-.header-text h1{
-  height: 35%;
-  font-size: 10rem;
-  font-weight: 400;
-  letter-spacing: .3rem;
-  padding: 0 6%;
-  color: #E09D00;
-  text-shadow: 1px .5px 1px #000;
-}
-                                    /* Styling for Home.js */
-  /* Sharing styles with .classes*/
-  .home-page,
-  .classes {
-    height: 100vh;
-    width: 100%;
-    overflow: scroll;
-    border-left: 3px solid #073A4A;
-    border-right: 3px solid #073A4A;
-  }
+/* Hide the scroll bar on overflow.*/ 
   ::-webkit-scrollbar {
     width: 0;
     background: transparent;
   }
-  .about-wrap {
-    background-color: #fff;
-    color: #000;
-    height: 35vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .about-wrap div {
-    height: 75%;
-    width: 60%;
-    text-align: center;
-    font-size: 2.1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    display: flex;
-    align-items: center;
-  }
-  .about-wrap p {
-    padding: 5%;
-  }
+  
 
                                     /* Styling for the Login Component */
 
@@ -213,7 +135,6 @@ header {
 .class
 
                                 /* Styling for edit class */
-
 
                                 /*Styling for the footer */
 

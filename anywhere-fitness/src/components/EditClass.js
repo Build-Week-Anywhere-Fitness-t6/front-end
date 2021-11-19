@@ -151,7 +151,7 @@ export default function EditClass() {
                     </label>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button onClick={editClass}>Submit</Button>
+                        <Button variant='contained' color='primary' onClick={editClass}>Submit</Button>
                     </Grid>
             </form> 
         </Grid>

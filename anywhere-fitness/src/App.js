@@ -23,9 +23,9 @@ import { Container } from "@material-ui/core";
 
 function App() {
   return (
-  <Container maxWidth='xl'>
+  <Container maxWidth={false}>
     <div className="App">
-      <Header/>
+    <Header />
       <Switch>
         <Route path="/edit/:id" component={EditClass}/>
         <Route path="/add" component={AddClass}/>
@@ -49,6 +49,7 @@ function App() {
           <Home />
           </Route>
       </Switch>
+      <Footer />
     </div>
   </Container>
   );
